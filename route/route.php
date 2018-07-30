@@ -12,3 +12,8 @@
 Route::rule('/', function () {
     return returnResponse(404,'没有数据');
 });
+
+Route::rule('/return', function () {
+    return returnResponse(103,'没有权限');
+});
+
