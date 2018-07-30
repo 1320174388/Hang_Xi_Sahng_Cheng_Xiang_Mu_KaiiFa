@@ -9,9 +9,9 @@
  */
 return [
     // 小程序Appid
-    'wx_AppID'     => 'wx3a28f21a2448be0c',
+    'wx_AppID'     => 'wx8296c2f72540d393',
     // 小程序秘钥
-    'wx_AppSecret' => 'd7c173988bb49514923b9e837f49baff',
+    'wx_AppSecret' => 'c9f4a3b25d925674d1f1241b7578f839',
     // 获取openid地址
     'wx_LoginUrl'  => 'https://api.weixin.qq.com/sns/jscode2session',
     // 获取小程序全局的Access_Token地址URL
@@ -19,7 +19,7 @@ return [
     // 发送模版消息接口地址
     'wx_Push_Url' => 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send',
     // 用户咨询提醒 模板ID
-    'PushAdmin' => '2TClx65vfpA8kqwEexw7J0fARev0bSm0Tvi3TQe4U_8',
+    'PushAdmin' => 'cJQ6sV7SYRE4bY0j0JG8kdILFWt3__Hkps5NQsQGxwA',
     // 客服回复通知 模板ID
-    'PushUser' => 'zUQUZD35j34JXneQA64RcRUGfT3Zex2tVnhOrddhGQA',
+    'PushUser' => 'QMh7cE50hMe4YLgtGC-BUoXkQex2O7zv4Bq6lruWG70',
 ];
