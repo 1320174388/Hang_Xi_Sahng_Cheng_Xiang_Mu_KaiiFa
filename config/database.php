@@ -15,7 +15,7 @@ return [
     // 服务器地址
     'hostname'        => 'gz-cdb-9yvp3vjn.sql.tencentcdb.com',
     // 数据库名
-    'database'        => 'langxue2hanxishangchengxiangmus',
+    'database'        => 'langxue2hanxishangchengxiangmu',
     // 用户名
     'username'        => 'root',
     // 密码
