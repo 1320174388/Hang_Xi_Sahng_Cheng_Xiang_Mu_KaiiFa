@@ -22,7 +22,7 @@ class GoodController extends Controller
      * 输  入 : (String) $post['goodPrice'] => '商品价格'
      * 输  入 : (String) $post['goodSales'] => '商品销量'
      * 输  入 : (String) $post['goodStyle'] => '{
-     *              {"styleName":"规格名称","stylePrice":"规格价格"}
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
      *          }'
      * 输  出 : {"errNum":0,"retMsg":"添加成功","retData":"商品主键"}
      * 创  建 : 2018/07/31 10:11

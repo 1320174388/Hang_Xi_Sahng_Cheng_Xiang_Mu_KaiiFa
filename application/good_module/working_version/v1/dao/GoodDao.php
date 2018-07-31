@@ -43,6 +43,8 @@ class GoodDao implements GoodInterface
             // 写入数据
             $goodModel->save();
 
+            return returnData('error','123');
+
             // 获取JSON数据
             $styleArr = json_decode($post['goodStyle'],true);
 
