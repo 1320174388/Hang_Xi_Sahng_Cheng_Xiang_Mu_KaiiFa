@@ -187,12 +187,13 @@ class GoodDao implements GoodInterface
                 'error',
                 '没有此商品'
             );
-            return returnData('error','123646545464');
             // 处理数据
             $good->good_name   = $put['goodName'];
             $good->class_index = $put['classIndex'];
             $good->good_price  = $put['goodPrice'];
             $good->good_sales  = $put['goodSales'];
+            
+            return returnData('error','123646545464');
             // 写入数据
             $S = $good->save();
             // 判断是否写入成功
