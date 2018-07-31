@@ -192,10 +192,11 @@ class GoodDao implements GoodInterface
             $good->class_index = $put['classIndex'];
             $good->good_price  = $put['goodPrice'];
             $good->good_sales  = $put['goodSales'];
-            
-            return returnData('error','123646545464');
             // 写入数据
             $S = $good->save();
+
+
+            return returnData('error','123646545464');
             // 判断是否写入成功
             if(!$S) return returnData('error','商品修改失败');
 
