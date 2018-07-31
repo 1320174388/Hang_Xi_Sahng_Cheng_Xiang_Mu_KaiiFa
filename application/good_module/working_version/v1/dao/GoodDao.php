@@ -41,6 +41,7 @@ class GoodDao implements GoodInterface
             $goodModel->good_name  = $post['goodName'];
             $goodModel->good_price = $post['goodPrice'];
             $goodModel->good_sales = $post['goodSales'];
+            $goodModel->good_time  = time();
             // 写入数据
             $goodModel->save();
 
@@ -62,7 +63,7 @@ class GoodDao implements GoodInterface
             }
 
             // 保存到数据库
-            $styleModel->saveAll($list);
+            $styleModel->saveAll($list,false);
 
             // 提交事务
             Db::commit();
