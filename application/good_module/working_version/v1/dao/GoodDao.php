@@ -11,6 +11,7 @@ namespace app\good_module\working_version\v1\dao;
 use think\Db;
 use app\good_module\working_version\v1\model\GoodModel;
 use app\good_module\working_version\v1\model\StyleModel;
+use app\good_module\working_version\v1\model\PictureModel;
 
 class GoodDao implements GoodInterface
 {
@@ -123,7 +124,11 @@ class GoodDao implements GoodInterface
 
         // 判断图片排序是否是1
         if($post['imageSort']==1){
-
+            // 获取原主键图片
+            $res = PictureModel::where(
+                'gdimg_index',
+                $post['goodIndex']
+            )->find();
         }
     }
 }
