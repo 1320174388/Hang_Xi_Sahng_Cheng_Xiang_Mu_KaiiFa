@@ -87,7 +87,7 @@ class GoodDao implements GoodInterface
             // 提交事务
             Db::commit();
             // 返回正确数据
-            return returnData('success',$list);
+            return returnData('success',$goodindex);
         } catch (\Exception $e) {
             // 回滚事务
             Db::rollback();
