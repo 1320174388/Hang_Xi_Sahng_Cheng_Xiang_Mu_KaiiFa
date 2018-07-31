@@ -33,10 +33,11 @@ class GoodsClassDao
      * 输  出 : [ 'msg' => 'success', 'data' => $data ]
      * 创  建 : 2018/07/31 09:50
      */
-    public function queryOne()
+    public function queryOne($class_index)
     {
         $goods = new GoodsClassModel();
-        $goods->where('class_')->find();
+        $data = $goods->where('class_index',$class_index)->find();
+        return returnData('success',$data);
     }
     /**
      * 名  称 : query()
