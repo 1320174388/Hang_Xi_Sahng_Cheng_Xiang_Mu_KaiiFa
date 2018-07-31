@@ -83,6 +83,8 @@ class GoodService
 
         // 获取表单上传文件 例如上传了001.jpg
         $file = request()->file('imageFile');
+        // 判断是否上传图片
+        if(!$file) return returnData('error','没有上传图片');
         // 移动到框架应用根目录/uploads/ 目录下
         $info = $file->move( './uploads/goods');
         if(!$info) {
