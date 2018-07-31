@@ -47,7 +47,7 @@ class GoodDao implements GoodInterface
             $goodModel->good_price = $post['goodPrice'];
             $goodModel->good_sales = $post['goodSales'];
             $goodModel->good_img_master  = md5(uniqid().mt_rand(1,9999999));
-            $goodModel->good_img_detaile = md5(uniqid().mt_rand(1,9999999));
+            $goodModel->good_img_details = md5(uniqid().mt_rand(1,9999999));
             $goodModel->good_time  = time();
             // 写入数据
             $S = $goodModel->save();
