@@ -74,6 +74,6 @@ class GoodController extends Controller
             );
         }
         // 返回正确数据
-        return returnResponse(0,'添加成功',$res['data']);
+        return returnResponse(0,$res['data'],true);
     }
 }
