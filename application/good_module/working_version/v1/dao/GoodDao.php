@@ -66,7 +66,7 @@ class GoodDao implements GoodInterface
                     {
                         return returnData('error','商品规格信息重复');
                     }
-                    if((is_numeric($j['stylePrice'])))
+                    if(!is_numeric($j['stylePrice']))
                     {
                         return returnData('error','商品价格输入错误');
                     }
