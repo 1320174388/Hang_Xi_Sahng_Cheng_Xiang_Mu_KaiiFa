@@ -181,15 +181,13 @@ class GoodDao implements GoodInterface
         Db::startTrans();
         try{
             // 获取商品信息
-            $good = GoodModel::where(
-                'good_index',
-                $put['goodIndex']
-            )->find();
+            $good = GoodModel::get($put['goodIndex']);
             // 判断是否有数据
             if(!$good) return returnData(
                 'error',
                 '没有此商品'
             );
+            return returnData('error','123646545464');
             // 处理数据
             $good->good_name   = $put['goodName'];
             $good->class_index = $put['classIndex'];
