@@ -10,6 +10,7 @@
 namespace app\good_module\working_version\v1\service;
 use app\good_module\working_version\v1\dao\GoodDao;
 use app\good_module\working_version\v1\validator\GoodValidate;
+use app\good_module\working_version\v1\validator\ImageValidate;
 
 class GoodService
 {
@@ -54,5 +55,50 @@ class GoodService
 
         // 返回正确数据
         return returnData('success',$res['data']);
+    }
+
+    /**
+     * 名  称 : goodImageAdd()
+     * 功  能 : 处理商品信息数据
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $post['goodIndex'] = '商品主键';
+     * 输  入 : (String) $post['imageType'] = '图片类信';  master / son
+     * 输  入 : (String) $post['imageSort'] = '图片排序';
+     * 输  入 : (String) $file['imageFile'] = '图片数据';
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/07/31 10:11
+     */
+    public function goodImageAdd($post)
+    {
+        // 实例化验证器，验证数据是否正确
+        $imageValidate = new ImageValidate();
+        // 判断数据是否正确,返回错误数据
+        if(!$imageValidate->check($post))
+        {
+            return returnData(
+                'error',
+                $imageValidate->getError()
+            );
+        }
+
+        //创建图片目录
+        $dir = './uploads/goods';
+        is_dir($dir) or mkdir($dir,0777,true);
+
+        // 获取表单上传文件 例如上传了001.jpg
+        $file = request()->file('imageFile');
+        // 移动到框架应用根目录/uploads/ 目录下
+        $info = $file->move( './uploads/goods');
+        if(!$info) {
+            // 返回上传失败获取错误信息
+            return returnData('error', $file->getError());
+        }
+
+        // 获取 20160820/42a79759f284b767dfcb2a0197904287.jpg
+        $post['imageFile'] = './uploads/goods/'.$info->getSaveName();
+
+        // 返回正确数据
+        return returnData('success',$post['imageFile']);
+
     }
 }

@@ -46,4 +46,34 @@ class GoodController extends Controller
         return returnResponse(0,'添加成功',$res['data']);
 
     }
+
+    /**
+     * 名  称 : goodImagePost()
+     * 功  能 : 添加商品图片接口
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $post['goodIndex'] = '商品主键';
+     * 输  入 : (String) $post['imageType'] = '图片类信';  master / son
+     * 输  入 : (String) $post['imageSort'] = '图片排序';
+     * 输  入 : (String) $file['imageFile'] = '图片数据';
+     * 输  出 : {"errNum":0,"retMsg":"添加成功","retData":true}
+     * 创  建 : 2018/07/31 16:47
+     */
+    public function goodImagePost(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $goodService = new GoodService();
+        // 获取传值数据
+        $post = $request->post();
+        // 执行业务逻辑处理
+        $res = $goodService->goodImageAdd($post);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,'添加成功',$res['data']);
+    }
 }

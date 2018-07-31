@@ -22,13 +22,22 @@ Route::group('v1/good_module/', function(){
     // ---- 添加商品 ----
 
     /**
-     * 路由名称: user_route
+     * 路由名称: good_post
      * 传值方式: POST
      * 路由功能: 添加商品信息接口
      */
     Route::post(
         'good_post/:token',
         'good_module/v1.controller.GoodController/goodPost'
+    );
+    /**
+     * 路由名称: good_image_post
+     * 传值方式: POST
+     * 路由功能: 添加商品图片接口
+     */
+    Route::post(
+        'good_image_post/:token',
+        'good_module/v1.controller.GoodController/goodImagePost'
     );
 
 })->middleware('Right_v3_IsAdmin');
