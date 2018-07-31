@@ -72,9 +72,13 @@ class GoodsClassService
     public function modifyClass($data)
     {
         $classDao = new GoodsClassDao();
-//        $data['class_index']
-//        $data['class_img_url'] ==
-//       $reult = $classDao->modify($data);
+        $goodsData = $classDao->queryOne($data['class_index']);
+        //判断如果图片被修改删除原图片
+        if($data['class_img_url'] !== $goodsData['data']['class_img_url'])
+        {
+            unlink($goodsData['data']['class_img_url']);
+        }
+       $reult = $classDao->modify($data);
         if ($reult['data']) {
             return returnData('success', $reult['data']);
         } else {
@@ -92,9 +96,13 @@ class GoodsClassService
     public function delectClass($class_index)
     {
         $goodsClass = new GoodsClassDao();
+        $goodsData = $goodsClass->queryOne($class_index);
         $reult = $goodsClass->delect($class_index);
         if ($reult['data']) {
+            //删除图片资源
+            @unlink($goodsData['data']['class_img_url']);
             return returnData('success', $reult['data']);
+
         } else {
             return returnData('error', $reult['data']);
         }
