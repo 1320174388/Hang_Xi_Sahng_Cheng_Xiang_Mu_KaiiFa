@@ -81,10 +81,6 @@ class GoodService
             );
         }
 
-        //创建图片目录
-        $dir = './uploads/goods';
-        is_dir($dir) or mkdir($dir,0777,true);
-
         // 获取表单上传文件 例如上传了001.jpg
         $file = request()->file('imageFile');
         // 移动到框架应用根目录/uploads/ 目录下
