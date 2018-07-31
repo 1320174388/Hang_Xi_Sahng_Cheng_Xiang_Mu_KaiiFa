@@ -32,6 +32,11 @@ class GoodDao implements GoodInterface
         // 启动事务
         Db::startTrans();
         try{
+            // 获取商品数据
+            $G = GoodModel::where('good_name',$post['goodName'])->find();
+            // 判断是否存在，如果存在返回错误信息
+            if($G) return returnData('error','商品已存在');
+
             // 实例化商品表数据模型
             $goodModel = new GoodModel();
             // 生成主键
@@ -43,7 +48,9 @@ class GoodDao implements GoodInterface
             $goodModel->good_sales = $post['goodSales'];
             $goodModel->good_time  = time();
             // 写入数据
-            $goodModel->save();
+            $S = $goodModel->save();
+            // 判断是否写入成功
+            if(!$S) return returnData('error','商品添加失败');
 
             // 获取JSON数据
             $styleArr = json_decode($post['goodStyle'],true);
@@ -54,6 +61,13 @@ class GoodDao implements GoodInterface
             $list = [];
             foreach($styleArr as $k=>$v)
             {
+                foreach($styleArr as $i=>$j){
+                    if(($k!=$i)&&($v['styleName']==$j['styleName']))
+                    {
+                        return returnData('error','商品规格信息重复');
+                    }
+                }
+
                 $list[] = [
                     'style_index' => $k.md5(uniqid().mt_rand(1,99999999)),
                     'good_index'  => $goodindex,
@@ -61,9 +75,10 @@ class GoodDao implements GoodInterface
                     'style_price' => $v['stylePrice'],
                 ];
             }
-
             // 保存到数据库
-            $styleModel->saveAll($list,false);
+            $D = $styleModel->saveAll($list,false);
+            // 判断是否写入成功
+            if(!$D) return returnData('error','商品规格信息错误');
 
             // 提交事务
             Db::commit();
