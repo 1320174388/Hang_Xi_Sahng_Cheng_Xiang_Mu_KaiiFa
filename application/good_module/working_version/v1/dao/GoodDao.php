@@ -39,7 +39,8 @@ class GoodDao implements GoodInterface
             // 处理数据
             $goodModel->good_index = $goodindex;
             $goodModel->good_name  = $post['goodName'];
-            $goodModel->good_seale = $post['goodSales'];
+            $goodModel->good_price = $post['goodPrice'];
+            $goodModel->good_sales = $post['goodSales'];
             // 写入数据
             $goodModel->save();
 
