@@ -16,4 +16,6 @@ return [
     'GoodTable' => 'data_goods_lists',
     // 商品规格表
     'StyleTable' => 'data_goods_styles',
+    // 商品图片信息标
+    'PictureTable' => 'data_goods_pictures',
 ];

@@ -117,9 +117,13 @@ class GoodDao implements GoodInterface
         if($post['imageType']=='master'){
             $fileIndex = $good['good_img_master'];
         }
-        if($post['imageType']=='master'){
-            $fileIndex = $good['good_img_detaile'];
+        if($post['imageType']=='son'){
+            $fileIndex = $good['good_img_details'];
         }
-        //
+
+        // 判断图片排序是否是1
+        if($post['imageSort']==1){
+
+        }
     }
 }
