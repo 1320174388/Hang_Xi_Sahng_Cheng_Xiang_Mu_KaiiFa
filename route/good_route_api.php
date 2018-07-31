@@ -33,7 +33,7 @@ Route::group('v1/good_module/', function(){
     /**
      * 路由名称: good_image_post
      * 传值方式: POST
-     * 路由功能: 添加商品图片接口
+     * 路由功能: 设置商品图片接口
      */
     Route::post(
         'good_image_post/:token',

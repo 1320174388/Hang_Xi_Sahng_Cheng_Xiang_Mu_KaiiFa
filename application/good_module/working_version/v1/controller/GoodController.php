@@ -55,7 +55,7 @@ class GoodController extends Controller
      * 输  入 : (String) $post['imageType'] = '图片类信';  master / son
      * 输  入 : (String) $post['imageSort'] = '图片排序';
      * 输  入 : (String) $file['imageFile'] = '图片数据';
-     * 输  出 : {"errNum":0,"retMsg":"添加成功","retData":true}
+     * 输  出 : {"errNum":0,"retMsg":"上传成功","retData":true}
      * 创  建 : 2018/07/31 16:47
      */
     public function goodImagePost(Request $request)
