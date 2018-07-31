@@ -59,7 +59,7 @@ class GoodDao implements GoodInterface
                     'style_price' => $v['stylePrice'],
                 ];
             }
-            
+
             // 保存到数据库
             $styleModel->saveAll($list);
 

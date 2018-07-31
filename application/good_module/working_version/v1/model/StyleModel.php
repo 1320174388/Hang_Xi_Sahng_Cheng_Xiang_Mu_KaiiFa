@@ -16,7 +16,7 @@ class StyleModel extends Model
     protected $table = '';
 
     // 设置当前模型对应数据表的主键
-    protected $pk = 'good_index';
+    protected $pk = 'style_index';
 
     // 加载配置数据表名
     public function initialize()
