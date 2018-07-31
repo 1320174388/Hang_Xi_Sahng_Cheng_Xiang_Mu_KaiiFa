@@ -128,7 +128,7 @@ class GoodDao implements GoodInterface
             $list = PictureModel::where(
                 'gdimg_index',
                 $fileIndex
-            )->find();
+            )->select();
             // 判断是否有图片
             if($list){
                 foreach($list as $k=>$v){
