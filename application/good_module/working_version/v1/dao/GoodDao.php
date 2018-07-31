@@ -199,9 +199,14 @@ class GoodDao implements GoodInterface
 
             // 获取JSON数据
             $styleArr = json_decode($put['goodStyle'],true);
-
+            
             // 获取原规格数据
-            StyleModel::where('good_index',$put['goodIndex'])->delete();
+            StyleModel::where(
+                'good_index',
+                $put['goodIndex']
+            )->delete();
+
+            return returnData('error','456');
 
             // 实例化规格表模型
             $styleModel = new StyleModel();
