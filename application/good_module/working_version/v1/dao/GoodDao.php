@@ -181,7 +181,10 @@ class GoodDao implements GoodInterface
         Db::startTrans();
         try{
             // 获取商品信息
-            $good = GoodModel::get($put['goodIndex']);
+            $good = GoodModel::where(
+                'good_index',
+                $put['goodIndex']
+            )->find();
             // 判断是否有数据
             if(!$good) return returnData(
                 'error',
@@ -199,8 +202,6 @@ class GoodDao implements GoodInterface
 
             // 获取JSON数据
             $styleArr = json_decode($put['goodStyle'],true);
-
-            return returnData('error','456');
 
             // 获取原规格数据
             StyleModel::where(
