@@ -125,10 +125,34 @@ class GoodDao implements GoodInterface
         // 判断图片排序是否是1
         if($post['imageSort']==1){
             // 获取原主键图片
-            $res = PictureModel::where(
+            $list = PictureModel::where(
                 'gdimg_index',
                 $post['goodIndex']
             )->find();
+            // 判断是否有图片
+            if($list){
+                foreach($list as $k=>$v){
+                    @unlink('.'.$v['picture_url']);
+                }
+            }
         }
+
+        // 实例化数据库模型
+        $pictureModel = new PictureModel();
+        // 处理数据
+        $pictureModel->picture_index = md5(uniqid().mt_rand(1,999999999));
+        $pictureModel->gdimg_index   = $fileIndex;
+        $pictureModel->picture_url   = $post['imageFile'];
+        $pictureModel->picture_sort  = $post['imageSort'];
+        // 保存数据
+        $save = $pictureModel->save();
+
+        // 验证数据
+        if(!$save) return returnData(
+            'error',
+            '上传失败'
+        );
+        // 返回正确数据
+        return returnData('success','上传成功');
     }
 }
