@@ -20,10 +20,11 @@ class GoodDao implements GoodInterface
      * 功  能 : 添加商品信息到数据库
      * 变  量 : --------------------------------------
      * 输  入 : (String) $post['goodName']  => '商品名称'
+     * 输  入 : (String) $post['classIndex']=> '分类标识'
      * 输  入 : (String) $post['goodPrice'] => '商品价格'
      * 输  入 : (String) $post['goodSales'] => '商品销量'
      * 输  入 : (String) $post['goodStyle'] => '{
-     *              {"styleName":"规格名称","stylePrice":"规格价格"}
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
      *          }'
      * 输  出 : ['msg'=>'success','data'=>'商品主键']
      * 创  建 : 2018/07/31 10:11
@@ -45,6 +46,7 @@ class GoodDao implements GoodInterface
             // 处理数据
             $goodModel->good_index = $goodindex;
             $goodModel->good_name  = $post['goodName'];
+            $goodModel->class_index= $post['classIndex'];
             $goodModel->good_price = $post['goodPrice'];
             $goodModel->good_sales = $post['goodSales'];
             $goodModel->good_img_master  = md5(uniqid().mt_rand(1,9999999));

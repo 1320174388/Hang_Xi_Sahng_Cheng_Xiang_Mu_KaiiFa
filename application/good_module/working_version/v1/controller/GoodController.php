@@ -19,6 +19,7 @@ class GoodController extends Controller
      * 功  能 : 添加商品信息接口
      * 变  量 : --------------------------------------
      * 输  入 : (String) $post['goodName']  => '商品名称'
+     * 输  入 : (String) $post['classIndex']=> '分类标识'
      * 输  入 : (String) $post['goodPrice'] => '商品价格'
      * 输  入 : (String) $post['goodSales'] => '商品销量'
      * 输  入 : (String) $post['goodStyle'] => '{

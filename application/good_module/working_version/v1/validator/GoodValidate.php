@@ -16,15 +16,17 @@ class GoodValidate extends Validate
      * 名  称 : $rule => '静态属性'
      * 功  能 : 定义验证规则
      * 输  入 : (String) $post['goodName']  => '商品名称'
+     * 输  入 : (String) $post['classIndex']=> '分类标识'
      * 输  入 : (String) $post['goodPrice'] => '商品价格'
      * 输  入 : (String) $post['goodSales'] => '商品销量'
      * 输  入 : (String) $post['goodStyle'] => '{
-     *              {"styleName":"规格名称","stylePrice":"规格价格"}
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
      *          }'
      * 创  建 : 2018/07/31 10:33
      */
     protected $rule = [
         'goodName'  => 'require|min:1|max:20',
+        'classIndex'=> 'require|min:32|max:32',
         'goodPrice' => 'require|number',
         'goodSales' => 'require|number',
         'goodStyle' => 'require',
@@ -38,6 +40,9 @@ class GoodValidate extends Validate
         'goodName.require'  => '请输入1~20个字的商品名称',
         'goodName.min'      => '请输入1~20个字的商品名称',
         'goodName.max'      => '请输入1~20个字的商品名称',
+        'classIndex.require'=> '请正确输入分类标识',
+        'classIndex.min'    => '请正确输入分类标识',
+        'classIndex.max'    => '请正确输入分类标识',
         'goodPrice.require' => '请正确输入商品价格',
         'goodPrice.number'  => '请正确输入商品价格',
         'goodSales.require' => '请正确输入商品销量',

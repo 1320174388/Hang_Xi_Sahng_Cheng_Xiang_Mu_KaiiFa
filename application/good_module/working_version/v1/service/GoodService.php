@@ -19,10 +19,11 @@ class GoodService
      * 功  能 : 处理商品信息数据
      * 变  量 : --------------------------------------
      * 输  入 : (String) $post['goodName']  => '商品名称'
+     * 输  入 : (String) $post['classIndex']=> '分类标识'
      * 输  入 : (String) $post['goodPrice'] => '商品价格'
      * 输  入 : (String) $post['goodSales'] => '商品销量'
      * 输  入 : (String) $post['goodStyle'] => '{
-     *              {"styleName":"规格名称","stylePrice":"规格价格"}
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
      *          }'
      * 输  出 : ['msg'=>'success','data'=>'商品主键']
      * 创  建 : 2018/07/31 10:11
