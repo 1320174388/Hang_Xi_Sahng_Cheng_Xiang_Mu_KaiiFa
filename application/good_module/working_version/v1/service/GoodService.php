@@ -81,7 +81,7 @@ class GoodService
             );
         }
 
-        if(($post['imageType']!='master')||($post['imageType']!='son'))
+        if(($post['imageType']!='master')&&($post['imageType']!='son'))
             return returnData(
                 'error',
                 '图片状态不存在'
