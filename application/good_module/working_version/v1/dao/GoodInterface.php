@@ -25,4 +25,17 @@ interface GoodInterface
      * 创  建 : 2018/07/31 10:11
      */
     public function goodCreate($post);
+
+    /**
+     * 名  称 : goodImageCreate()
+     * 功  能 : 添加商品图片到数据库
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $post['goodIndex'] = '商品主键';
+     * 输  入 : (String) $post['imageType'] = '图片类信';  master / son
+     * 输  入 : (String) $post['imageSort'] = '图片排序';
+     * 输  入 : (String) $post['imageFile'] = '图片数据';
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/07/31 10:11
+     */
+    public function goodImageCreate($post);
 }

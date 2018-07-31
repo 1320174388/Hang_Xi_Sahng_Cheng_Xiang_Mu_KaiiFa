@@ -46,6 +46,8 @@ class GoodDao implements GoodInterface
             $goodModel->good_name  = $post['goodName'];
             $goodModel->good_price = $post['goodPrice'];
             $goodModel->good_sales = $post['goodSales'];
+            $goodModel->good_img_master  = md5(uniqid().mt_rand(1,9999999));
+            $goodModel->good_img_detaile = md5(uniqid().mt_rand(1,9999999));
             $goodModel->good_time  = time();
             // 写入数据
             $S = $goodModel->save();
@@ -94,5 +96,30 @@ class GoodDao implements GoodInterface
             // 返回正确数据
             return returnData('error','添加失败');
         }
+    }
+
+    /**
+     * 名  称 : goodImageCreate()
+     * 功  能 : 添加商品图片到数据库
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $post['goodIndex'] = '商品主键';
+     * 输  入 : (String) $post['imageType'] = '图片类信';  master / son
+     * 输  入 : (String) $post['imageSort'] = '图片排序';
+     * 输  入 : (String) $post['imageFile'] = '图片数据';
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/07/31 10:11
+     */
+    public function goodImageCreate($post)
+    {
+        // 获取商品信息
+        $good = GoodModel::get($post['goodIndex']);
+        // 获取图片主键
+        if($post['imageType']=='master'){
+            $fileIndex = $good['good_img_master'];
+        }
+        if($post['imageType']=='master'){
+            $fileIndex = $good['good_img_detaile'];
+        }
+        //
     }
 }

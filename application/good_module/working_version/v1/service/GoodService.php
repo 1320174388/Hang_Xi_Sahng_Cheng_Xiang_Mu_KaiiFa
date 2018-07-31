@@ -81,6 +81,12 @@ class GoodService
             );
         }
 
+        if(($post['imageType']=='master')||($post['imageType']=='son'))
+            return returnData(
+                'error',
+                '图片状态不存在'
+            );
+
         // 获取表单上传文件 例如上传了001.jpg
         $file = request()->file('imageFile');
         // 判断是否上传图片
@@ -93,10 +99,21 @@ class GoodService
         }
 
         // 获取 20160820/42a79759f284b767dfcb2a0197904287.jpg
-        $post['imageFile'] = './uploads/goods/'.$info->getSaveName();
+        $post['imageFile'] = '/uploads/goods/'.$info->getSaveName();
 
+        // 实例化Dao数据操作类，写入数据
+        $goodDao = new GoodDao();
+        // 执行写入数据操作函数
+        $res =  $goodDao->goodImageCreate($post);
+        // 判断数据是否写入成功，返回错误数据
+        if($res['msg']=='error')
+        {
+            return returnData(
+                'error',
+                $res['data']
+            );
+        }
         // 返回正确数据
-        return returnData('success',$post['imageFile']);
-
+        return returnData('success',$res['data']);
     }
 }
