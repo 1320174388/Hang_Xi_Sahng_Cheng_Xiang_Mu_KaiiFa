@@ -60,8 +60,6 @@ class GoodDao implements GoodInterface
                 ];
             }
             
-            return returnData('error','123');
-
             // 保存到数据库
             $styleModel->saveAll($list);
 
