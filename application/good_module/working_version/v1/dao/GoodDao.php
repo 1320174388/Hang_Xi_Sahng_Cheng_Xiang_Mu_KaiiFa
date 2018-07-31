@@ -127,7 +127,7 @@ class GoodDao implements GoodInterface
             // 获取原主键图片
             $list = PictureModel::where(
                 'gdimg_index',
-                $post['goodIndex']
+                $fileIndex
             )->find();
             // 判断是否有图片
             if($list){
