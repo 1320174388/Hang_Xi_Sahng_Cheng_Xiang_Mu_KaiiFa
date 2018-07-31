@@ -77,4 +77,38 @@ class GoodController extends Controller
         // 返回正确数据
         return returnResponse(0,$res['data'],true);
     }
+
+    /**
+     * 名  称 : goodPut()
+     * 功  能 : 修改商品信息接口
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $put['goodIndex'] => '商品主键'
+     * 输  入 : (String) $put['goodName']  => '商品名称'
+     * 输  入 : (String) $put['classIndex']=> '分类标识'
+     * 输  入 : (String) $put['goodPrice'] => '商品价格'
+     * 输  入 : (String) $put['goodSales'] => '商品销量'
+     * 输  入 : (String) $put['goodStyle'] => '{
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
+     *          }'
+     * 输  出 : {"errNum":0,"retMsg":"修改成功","retData":true}
+     * 创  建 : 2018/07/31 22:56
+     */
+    public function goodPut(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $goodService = new GoodService();
+        // 获取传值数据
+        $put = $request->put();
+        // 执行业务逻辑处理
+        $res = $goodService->goodEdit($put);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,'修改成功',$res['data']);
+    }
 }

@@ -19,7 +19,7 @@
 
 Route::group('v1/good_module/', function(){
 
-    // ---- 添加商品 ----
+    // ---- 商品管理 ----
 
     /**
      * 路由名称: good_post
@@ -38,6 +38,15 @@ Route::group('v1/good_module/', function(){
     Route::post(
         'good_image_post/:token',
         'good_module/v1.controller.GoodController/goodImagePost'
+    );
+    /**
+     * 路由名称: good_put
+     * 传值方式: PUT
+     * 路由功能: 修改商品信息接口
+     */
+    Route::put(
+        'good_put/:token',
+        'good_module/v1.controller.GoodController/goodPut'
     );
 
 })->middleware('Right_v3_IsAdmin');

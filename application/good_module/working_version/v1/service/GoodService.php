@@ -117,4 +117,54 @@ class GoodService
         // 返回正确数据
         return returnData('success',$res['data']);
     }
+
+    /**
+     * 名  称 : goodEdit()
+     * 功  能 : 修改商品信息接口
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $put['goodIndex'] => '商品主键'
+     * 输  入 : (String) $put['goodName']  => '商品名称'
+     * 输  入 : (String) $put['classIndex']=> '分类标识'
+     * 输  入 : (String) $put['goodPrice'] => '商品价格'
+     * 输  入 : (String) $put['goodSales'] => '商品销量'
+     * 输  入 : (String) $put['goodStyle'] => '{
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
+     *          }'
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/07/31 22:58
+     */
+    public function goodEdit($put)
+    {
+        // 实例化验证器，验证数据是否正确
+        $goodValidate = new GoodValidate();
+        // 判断数据是否正确,返回错误数据
+        if(!$goodValidate->check($put))
+        {
+            return returnData(
+                'error',
+                $goodValidate->getError()
+            );
+        }
+        // 判断商品主键是否发送
+        if(empty($put['goodIndex'])) return returnData(
+            'error',
+            '请发送商品标识'
+        );
+
+        // 实例化Dao数据操作类，写入数据
+        $goodDao = new GoodDao();
+        // 执行写入数据操作函数
+        $res =  $goodDao->goodUpdate($put);
+        // 判断数据是否写入成功，返回错误数据
+        if($res['msg']=='error')
+        {
+            return returnData(
+                'error',
+                $res['data']
+            );
+        }
+
+        // 返回正确数据
+        return returnData('success',$res['data']);
+    }
 }

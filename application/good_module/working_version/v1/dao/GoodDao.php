@@ -159,4 +159,88 @@ class GoodDao implements GoodInterface
         // 返回正确数据
         return returnData('success','上传成功');
     }
+
+    /**
+     * 名  称 : goodUpdate()
+     * 功  能 : 修改商品信息接口
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $put['goodIndex'] => '商品主键'
+     * 输  入 : (String) $put['goodName']  => '商品名称'
+     * 输  入 : (String) $put['classIndex']=> '分类标识'
+     * 输  入 : (String) $put['goodPrice'] => '商品价格'
+     * 输  入 : (String) $put['goodSales'] => '商品销量'
+     * 输  入 : (String) $put['goodStyle'] => '{
+     *              "{"styleName":"规格名称","stylePrice":"规格价格"}"
+     *          }'
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/07/31 23:12
+     */
+    public function goodUpdate($put)
+    {
+        // 启动事务
+        Db::startTrans();
+        try{
+            // 获取商品信息
+            $good = GoodModel::get($put['goodIndex']);
+            // 判断是否有数据
+            if(!$good) return returnData(
+                'error',
+                '没有此商品'
+            );
+            // 处理数据
+            $good->good_name   = $put['goodName'];
+            $good->class_index = $put['classIndex'];
+            $good->good_price  = $put['goodPrice'];
+            $good->good_sales  = $put['goodSales'];
+            // 写入数据
+            $S = $good->save();
+            // 判断是否写入成功
+            if(!$S) return returnData('error','商品修改失败');
+
+            // 获取JSON数据
+            $styleArr = json_decode($put['goodStyle'],true);
+
+            // 获取原规格数据
+            StyleModel::where('good_index',$put['goodIndex'])->delete();
+
+            // 实例化规格表模型
+            $styleModel = new StyleModel();
+            // 处理数据
+            $list = [];
+            foreach($styleArr as $k=>$v)
+            {
+                foreach($styleArr as $i=>$j){
+                    if(($k!=$i)&&($v['styleName']==$j['styleName']))
+                    {
+                        return returnData('error','商品规格信息重复');
+                    }
+                    if(!is_numeric($j['stylePrice']))
+                    {
+                        return returnData('error','商品价格输入错误');
+                    }
+                }
+
+                $list[] = [
+                    'style_index' => $k.md5(uniqid().mt_rand(1,99999999)),
+                    'good_index'  => $put['goodIndex'],
+                    'style_name'  => $v['styleName'],
+                    'style_price' => $v['stylePrice'],
+                ];
+            }
+            // 保存到数据库
+            $D = $styleModel->saveAll($list,false);
+            // 判断是否写入成功
+            if(!$D) return returnData('error','商品规格信息错误');
+
+            // 提交事务
+            Db::commit();
+            // 返回正确数据
+            return returnData('success','修改成功');
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            // 返回正确数据
+            return returnData('error','修改失败');
+        }
+    }
 }
