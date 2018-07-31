@@ -135,6 +135,7 @@ class GoodDao implements GoodInterface
                     @unlink('.'.$v['picture_url']);
                 }
             }
+            $list->delete();
         }
 
         // 实例化数据库模型
