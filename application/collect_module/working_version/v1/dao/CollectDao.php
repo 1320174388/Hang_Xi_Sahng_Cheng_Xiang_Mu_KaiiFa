@@ -64,9 +64,9 @@ class CollectDao implements CollectInterface
         // 判断是否有数据
         if(!$res) return returnData(
             'error',
-            '当前没有收藏'
+            '未收藏'
         );
         // 返回数据
-        return returnData('success','请求成功');
+        return returnData('success','已收藏');
     }
 }
