@@ -17,11 +17,18 @@ class GoodsClassDao
      * 变  量 : --------------------------------------
      * 输  入 ：(array) $classData => 分类数据
      * 输  出 : [ 'msg' => 'success', 'data' => $data ]
+     * 输  出 : [ 'msg' => 'error', 'data' => '' ]
      * 创  建 : 2018/07/31 09:50
      */
     public function add($classData)
     {
         $goods = new GoodsClassModel();
+        //判断分类名称是否重复
+        $isName =$goods->where('class_name', $classData['class_name'])
+              ->field('class_name')->find();
+        //已存在名称提示信息
+        if ($isName) return returnData('error','分类名称已存在');
+        //执行添加
         $data = $goods->allowField(true)->save($classData);
         return returnData('success',$data);
     }
@@ -40,17 +47,41 @@ class GoodsClassDao
         return returnData('success',$data);
     }
     /**
+     * 名  称 : queryOne()
+     * 功  能 :  以父类主键查询子类商品分类
+     * 变  量 : --------------------------------------
+     * 输  入 ：(string) $class_index  => 分类主键
+     * 输  出 : [ 'msg' => 'success', 'data' => $data ]
+     * 创  建 : 2018/07/31 09:50
+     */
+    public function sonQuery($class_index)
+    {
+        //查询子分类
+       $reult = (new GoodsClassModel())->where('class_parent',$class_index)->find();
+       //查询结果
+       if($reult){
+           //查询成功
+           return returnData('success',true);
+       }else{
+           //查询失败
+           return returnData('error',false);
+       }
+    }
+    /**
      * 名  称 : query()
      * 功  能 : 查询商品分类
      * 变  量 : --------------------------------------
-     * 输  入 ：--------------------------------------
+     * 输  出 ：[ 'msg' => 'error', 'data' => $data ]
      * 输  出 : [ 'msg' => 'success', 'data' => $data ]
      * 创  建 : 2018/07/31 09:50
      */
     public function query()
     {
+        //执行模型查询
         $data = GoodsClassModel::all();
-        if(!$data) return returnData('error','当前没有添加分类');
+        //返回 错误信息
+        if(!$data) return returnData('error',$data);
+        //返回 数据
        return returnData('success',$data);
     }
 

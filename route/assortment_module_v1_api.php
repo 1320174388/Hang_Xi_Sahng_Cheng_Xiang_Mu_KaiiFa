@@ -17,14 +17,14 @@
 // | 路由功能：添加商品分类
 // +----------------------------------------------------------------------
 Route::post(
-    'v1/assortment_module/addGoodsClass',
+    'v1/assortment_module/addGoodsClass/:token',
     'assortment_module/v1.controller.IndexController/addGoodsClass'
-);
+)->middleware('Right_v3_IsAdmin');
 // +----------------------------------------------------------------------
 // | 接口名称：获取商品分类
-// | 路由地址：/v1/assortment_module/addGoodsClass
+// | 路由地址：/v1/assortment_module/getGoodsClass
 // | 请求类型：GET
-// | 接收数据：
+// | 接收数据：无
 // | 路由功能：获取商品分类
 // +----------------------------------------------------------------------
 Route::get(
@@ -33,7 +33,7 @@ Route::get(
 );
 // +----------------------------------------------------------------------
 // | 接口名称：修改商品分类
-// | 路由地址：/v1/assortment_module/addGoodsClass
+// | 路由地址：/v1/assortment_module/modifyGoodsClass
 // | 请求类型：POST
 // | 接收数据：`class_name`          分类名称      【必填】
 // |           `class_img_url`       分类图片      【必填】
@@ -41,20 +41,20 @@ Route::get(
 // | 路由功能：修改商品分类
 // +----------------------------------------------------------------------
 Route::post(
-    'v1/assortment_module/modifyGoodsClass',
+    'v1/assortment_module/modifyGoodsClass/:token',
     'assortment_module/v1.controller.IndexController/modifyGoodsClass'
-);
+)->middleware('Right_v3_IsAdmin');
 // +----------------------------------------------------------------------
 // | 接口名称：删除商品分类
 // | 路由地址：/v1/assortment_module/delectGoodsClass
-// | 请求类型：POST
+// | 请求类型：GET
 // | 接收数据：`class_index`         分类主键      【必填】
 // | 路由功能：删除商品分类
 // +----------------------------------------------------------------------
 Route::get(
-    'v1/assortment_module/delectGoodsClass',
+    'v1/assortment_module/delectGoodsClass/:token',
     'assortment_module/v1.controller.IndexController/delectGoodsClass'
-);
+)->middleware('Right_v3_IsAdmin');
 // +----------------------------------------------------------------------
 // | 接口名称：上传图片
 // | 路由地址：/v1/assortment_module/uploadImage

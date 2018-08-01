@@ -17,39 +17,42 @@ class IndexController extends Controller
      * 名  称 : addGoodsClass()
      * 功  能 : 添加商品分类
      * 变  量 : --------------------------------------
-     * 输  入 : (string) $class_parent    =>  一级分类主键  【可选】
-     * 输  入 : (string) $class_img_url   => 图片路径
-     * 输  入 : (string) $class_name      => 分类名称
+     * 输  入 : (string) $class_parent    =>  一级分类主键    【可填】
+     * 输  入 : (string) $class_img_url   => 图片路径         【必填】
+     * 输  入 : (string) $class_name      => 分类名称         【必填】
      * 输  出 :{"errNum":0,"retMsg":"提示信息","retData":{}
      * 创  建 : 2018/07/31 09:50
      */
     public function addGoodsClass()
     {
-          isset($_POST['class_parent']) ? $_POST['class_parent'] : 0;
-          $imgUrl = isset($_POST['class_img_url']) ? $_POST['class_img_url'] : false;
-          $goodsName = isset($_POST['class_name']) ? $_POST['class_name'] : false;
-          $imgUrl or exit(returnResponse(1,'请选择图片'));
-          $goodsName or exit(returnResponse(1,'请输入分类名称'));
           $goods = new GoodsClassService();
+          //传入数据执行添加逻辑
           $reult = $goods->addClass($_POST);
+          //判断执行结果
           if ($reult['msg'] == 'success'){
+              //返回添加成功信息
               return returnResponse(0,'添加成功',true);
           }else{
-              return returnResponse(1,'添加失败',false);
+              //返回添加失败信息
+              return returnResponse(1,'添加失败',$reult['data']);
           }
     }
     /**
      * 名  称 : getGoodsClass()
      * 功  能 : 获取商品分类
      * 变  量 : --------------------------------------
-     * 输  入 :
-     * 输  出 :{"errNum":0,"retMsg":"提示信息","retData":{}
+     * 输  出 :{"errNum":1,"retMsg":"提示信息","retData":false
+     * 输  出 :{"errNum":0,"retMsg":"提示信息","retData": {}
      * 创  建 : 2018/07/31 09:50
      */
     public function getGoodsClass()
     {
         $goods = new GoodsClassService();
+        //执行获取数据
         $data = $goods->getClass();
+        //数据为空返回
+        if ($data['msg'] !== 'success') return returnResponse(1,'没有添加分类',$data['data']);
+        //返回所有数据
         return returnResponse(0,'获取成功',$data['data']);
     }
     /**
@@ -64,16 +67,16 @@ class IndexController extends Controller
      */
     public function modifyGoodsClass()
     {
-        $class_index = isset($_POST['class_index']) ? $_POST['class_index'] : false;
-        $class_name = isset($_POST['class_name']) ? $_POST['class_name'] : false;
-        $class_img_url = isset($_POST['class_img_url']) ? $_POST['class_img_url'] : false;
-        $class_index or exit(returnResponse(1,'没有分类主键'));
         $goodsClass = new GoodsClassService();
+        //执行修改
         $reult = $goodsClass->modifyClass($_POST);
+        //执行结果
         if ($reult['msg'] == 'success'){
+            //返回成功信息
             return returnResponse(0,'修改成功',true);
         }else{
-            return returnResponse(1,'修改失败',false);
+            //返回失败信息
+            return returnResponse(1,'修改失败',$reult['data']);
         }
     }
     /**
@@ -86,14 +89,17 @@ class IndexController extends Controller
      */
     public function delectGoodsClass()
     {
+        //验证商品分类主键
         $class_index = isset($_GET['class_index']) ? $_GET['class_index'] : false;
         $class_index or exit(returnResponse(1,'没有分类主键'));
+        //执行删除
         $goodsClass = new GoodsClassService();
         $reult = $goodsClass->delectClass($class_index);
+        //返回结果
         if ($reult['msg'] == 'success'){
             return returnResponse(0,'删除成功',true);
         }else{
-            return returnResponse(1,'删除失败',false);
+            return returnResponse(1,'删除失败',$reult['data']);
         }
     }
     /**
