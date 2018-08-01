@@ -56,10 +56,17 @@ class CollectDao implements CollectInterface
     public function collectGoodSelect($get)
     {
         // 获取表明
+        $collectTable = config('v1_tableName.CollectTable');
+        $goodTable    = config('v1_tableName.GoodTable');
+        $styleTable   = config('v1_tableName.StyleTable');
+        // 获取数据
         $list = CollectModel::where(
             'user_token',
             $get['userToken']
-        )->profile();
+        )->leftJoin(
+            $goodTable,
+            "{$collectTable}.good_index = {$goodTable}.good_index"
+        )->select();
         // 判断是否有数据
         if(!$list) return returnData(
             'error',
