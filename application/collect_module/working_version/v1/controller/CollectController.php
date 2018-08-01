@@ -42,4 +42,32 @@ class CollectController extends Controller
         return returnResponse(0,$res['data'],true);
 
     }
+
+    /**
+     * 名  称 : collectIsGet()
+     * 功  能 : 商品是否被收藏接口
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['userToken'] => '用户标识';
+     * 输  入 : (String) $get['goodIndex'] => '商品标识';
+     * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":true}
+     * 创  建 : 2018/08/01 10:45
+     */
+    public function collectIsGet(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $collectService = new CollectService();
+        // 获取传值数据
+        $get = $request->get();
+        // 执行业务逻辑处理
+        $res = $collectService->collectGet($get);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,$res['data'],true);
+    }
 }

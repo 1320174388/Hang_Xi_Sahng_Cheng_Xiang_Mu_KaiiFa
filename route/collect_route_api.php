@@ -21,3 +21,12 @@ Route::post(
     'v1/collect_module/collect_post',
     'collect_module/v1.controller.CollectController/collectPost'
 );
+/**
+ * 路由名称: collect_isget
+ * 传值方式: GET
+ * 路由功能: 商品是否被收藏接口
+ */
+Route::get(
+    'v1/collect_module/collect_isget',
+    'collect_module/v1.controller.CollectController/collectIsGet'
+);

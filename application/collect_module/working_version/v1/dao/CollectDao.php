@@ -41,4 +41,32 @@ class CollectDao implements CollectInterface
         // 返回正确数据
         return returnData('success','添加成功');
     }
+
+    /**
+     * 名  称 : collectSelect()
+     * 功  能 : 获取收藏信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['userToken'] => '用户标识';
+     * 输  入 : (String) $get['goodIndex'] => '商品标识';
+     * 输  出 : ['msg'=>'success','data'=>'返回信息']
+     * 创  建 : 2018/08/01 10:53
+     */
+    public function collectSelect($get)
+    {
+        // 获取数据
+        $res = CollectModel::where(
+            'user_token',
+            $get['userToken']
+        )->where(
+            'good_index',
+            $get['goodIndex']
+        )->select()->toArray();
+        // 判断是否有数据
+        if(!$res) return returnData(
+            'error',
+            '当前没有收藏'
+        );
+        // 返回数据
+        return returnData('success','请求成功');
+    }
 }
