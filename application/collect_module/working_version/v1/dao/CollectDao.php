@@ -55,10 +55,12 @@ class CollectDao implements CollectInterface
         // 获取表明
         $collectTable = config('v1_tableName.CollectTable');
         $goodTable    = config('v1_tableName.GoodTable');
+        $styleTable   = config('v1_tableName.StyleTable');
         // 获取数据
         $list = Db::table($collectTable)
             ->alias('C')
-            ->join($goodTable.' G','C.good_index = G.good_index')
+            ->leftJoin($goodTable.' G','C.good_index = G.good_index')
+            ->leftJoin($styleTable.' S','C.good_index = S.good_index')
             ->select();
         // 判断是否有数据
         if(!$list) return returnData(
