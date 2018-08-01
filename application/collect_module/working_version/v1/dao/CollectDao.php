@@ -80,7 +80,7 @@ class CollectDao implements CollectInterface
         $goodIndexString = rtrim($goodIndexString,',');
         // 获取商品规格数据
         $styleModel = StyleModel::where(
-            'good_index in',
+            'good_index','in',
             "({$goodIndexString})"
         )->select();
         // 返回正确数据
