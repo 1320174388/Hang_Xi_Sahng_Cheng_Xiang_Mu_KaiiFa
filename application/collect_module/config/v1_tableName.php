@@ -13,5 +13,7 @@
 // +---------------------------------
 return [
     // 个人收藏信息表
-    'CollectTable' => 'data_people_collects'
+    'CollectTable' => 'data_people_collects',
+    // 商品信息表
+    'GoodTable' => 'data_goods_lists',
 ];

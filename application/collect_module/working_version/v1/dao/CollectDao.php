@@ -43,6 +43,34 @@ class CollectDao implements CollectInterface
     }
 
     /**
+     * 名  称 : collectGoodSelect()
+     * 功  能 : 获取个人收藏商品数据
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['userToken'] => '用户标识';
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/08/01 11:35
+     */
+    public function collectGoodSelect($get)
+    {
+        // 获取表明
+        $collectTable = config('v1_tableName.CollectTable');
+        $goodTable    = config('v1_tableName.GoodTable');
+        // 获取数据
+        $list = Db::table($collectTable)
+            ->alias('C')
+            ->join($goodTable.' G','C.good_index = G.good_index')
+            ->select();
+        // 判断是否有数据
+        if(!$list) return returnData(
+            'error',
+            '当前没有收藏'
+        );
+        // 返回正确数据
+        return returnData('success',$list);
+
+    }
+
+    /**
      * 名  称 : collectSelect()
      * 功  能 : 获取收藏信息
      * 变  量 : --------------------------------------

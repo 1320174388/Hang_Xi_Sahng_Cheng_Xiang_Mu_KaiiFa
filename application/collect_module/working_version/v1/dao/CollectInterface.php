@@ -23,6 +23,16 @@ interface CollectInterface
     public function collectCreate($post);
 
     /**
+     * 名  称 : collectGoodSelect()
+     * 功  能 : 获取个人收藏商品数据
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['userToken'] => '用户标识';
+     * 输  出 : ['msg'=>'success','data'=>'商品主键']
+     * 创  建 : 2018/08/01 11:35
+     */
+    public function collectGoodSelect($get);
+
+    /**
      * 名  称 : collectSelect()
      * 功  能 : 获取收藏信息
      * 变  量 : --------------------------------------

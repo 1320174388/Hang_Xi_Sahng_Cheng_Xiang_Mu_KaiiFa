@@ -22,6 +22,15 @@ Route::post(
     'collect_module/v1.controller.CollectController/collectPost'
 );
 /**
+ * 路由名称: collect_get
+ * 传值方式: GET
+ * 路由功能: 获取个人收藏商品数据接口
+ */
+Route::get(
+    'v1/collect_module/collect_get',
+    'collect_module/v1.controller.CollectController/collectGet'
+);
+/**
  * 路由名称: collect_isget
  * 传值方式: GET
  * 路由功能: 商品是否被收藏接口
