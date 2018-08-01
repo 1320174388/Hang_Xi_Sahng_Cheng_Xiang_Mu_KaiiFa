@@ -58,7 +58,6 @@ class CollectDao implements CollectInterface
         // 获取表明
         $collectTable = config('v1_tableName.CollectTable');
         $goodTable    = config('v1_tableName.GoodTable');
-        $styleTable   = config('v1_tableName.StyleTable');
         // 获取数据
         $list = CollectModel::where(
             'user_token',
@@ -72,19 +71,10 @@ class CollectDao implements CollectInterface
             'error',
             '当前没有收藏'
         );
-        // 获取所有商品主键
-        $goodIndexString = '';
-        foreach($list as $key=>$value){
-            $goodIndexString .= $value['good_index'].',';
-        }
-        $goodIndexString = rtrim($goodIndexString,',');
-        // 获取商品规格数据
-        $styleModel = StyleModel::where(
-            'good_index','in',
-            "({$goodIndexString})"
-        )->select();
+
+
         // 返回正确数据
-        return returnData('success',$styleModel);
+        return returnData('success',$list);
 
     }
 
