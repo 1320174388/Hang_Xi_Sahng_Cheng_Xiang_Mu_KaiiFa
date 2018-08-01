@@ -124,4 +124,43 @@ class CollectService
         // 返回正确数据
         return returnData('success',$res['data']);
     }
+
+    /**
+     * 名  称 : collectDel()
+     * 功  能 : 删除收藏商品
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['userToken'] => '用户标识';
+     * 输  入 : (String) $delete['goodIndex'] => '商品标识';
+     * 输  出 : ['msg'=>'success','data'=>'返回信息']
+     * 创  建 : 2018/08/01 15:12
+     */
+    public function collectDel($delete)
+    {
+        // 实例化验证器，验证数据是否正确
+        $collectValidate = new CollectValidate();
+        // 判断数据是否正确,返回错误数据
+        if(!$collectValidate->check($delete))
+        {
+            return returnData(
+                'error',
+                $collectValidate->getError()
+            );
+        }
+
+        // 实例化Dao数据操作类，写入数据
+        $goodDao = new CollectDao();
+        // 执行写入数据操作函数
+        $res =  $goodDao->collectDelete($delete);
+        // 判断数据是否写入成功，返回错误数据
+        if($res['msg']=='error')
+        {
+            return returnData(
+                'error',
+                $res['data']
+            );
+        }
+
+        // 返回正确数据
+        return returnData('success',$res['data']);
+    }
 }

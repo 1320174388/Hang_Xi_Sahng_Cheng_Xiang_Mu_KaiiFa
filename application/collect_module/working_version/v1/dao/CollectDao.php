@@ -121,4 +121,32 @@ class CollectDao implements CollectInterface
         // 返回数据
         return returnData('success','已收藏');
     }
+
+    /**
+     * 名  称 : collectDelete()
+     * 功  能 : 删除收藏商品
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['userToken'] => '用户标识';
+     * 输  入 : (String) $delete['goodIndex'] => '商品标识';
+     * 输  出 : ['msg'=>'success','data'=>'返回信息']
+     * 创  建 : 2018/08/01 16:05
+     */
+    public function collectDelete($delete)
+    {
+        // 获取数据
+        $res = CollectModel::where(
+            'user_token',
+            $get['userToken']
+        )->where(
+            'good_index',
+            $get['goodIndex']
+        )->delete();
+        // 判断是否有数据
+        if(!$res) return returnData(
+            'error',
+            '删除失败'
+        );
+        // 返回数据
+        return returnData('success','删除成功');
+    }
 }

@@ -39,3 +39,12 @@ Route::get(
     'v1/collect_module/collect_isget',
     'collect_module/v1.controller.CollectController/collectIsGet'
 );
+/**
+ * 路由名称: collect_delete
+ * 传值方式: DELETE
+ * 路由功能: 删除收藏商品
+ */
+Route::delete(
+    'v1/collect_module/collect_delete',
+    'collect_module/v1.controller.CollectController/collectDelete'
+);

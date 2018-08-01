@@ -42,4 +42,15 @@ interface CollectInterface
      * 创  建 : 2018/08/01 10:53
      */
     public function collectSelect($get);
+
+    /**
+     * 名  称 : collectDelete()
+     * 功  能 : 删除收藏商品
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['userToken'] => '用户标识';
+     * 输  入 : (String) $delete['goodIndex'] => '商品标识';
+     * 输  出 : ['msg'=>'success','data'=>'返回信息']
+     * 创  建 : 2018/08/01 16:05
+     */
+    public function collectDelete($delete);
 }

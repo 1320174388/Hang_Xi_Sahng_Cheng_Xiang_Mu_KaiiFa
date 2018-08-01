@@ -97,4 +97,32 @@ class CollectController extends Controller
         // 返回正确数据
         return returnResponse(0,$res['data'],true);
     }
+
+    /**
+     * 名  称 : collectDelete()
+     * 功  能 : 删除收藏商品
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['userToken'] => '用户标识';
+     * 输  入 : (String) $delete['goodIndex'] => '商品标识';
+     * 输  出 : {"errNum":0,"retMsg":"删除成功","retData":true}
+     * 创  建 : 2018/08/01 15:12
+     */
+    public function collectDelete(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $collectService = new CollectService();
+        // 获取传值数据
+        $delete = $request->delete();
+        // 执行业务逻辑处理
+        $res = $collectService->collectDel($delete);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,$res['data'],true);
+    }
 }
