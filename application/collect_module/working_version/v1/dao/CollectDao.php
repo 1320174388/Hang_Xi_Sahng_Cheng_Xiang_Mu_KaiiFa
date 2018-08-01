@@ -67,15 +67,18 @@ class CollectDao implements CollectInterface
             $goodTable,
             "{$collectTable}.good_index = {$goodTable}.good_index"
         )->select()->toArray();
-        // 嵌套载入
-
+        // 获取所有商品主键
+        $goodIndexString = '';
+        foreach($list as $key=>$value){
+            $goodIndexString .= $value['good_index'].',';
+        }
         // 判断是否有数据
         if(!$list) return returnData(
             'error',
             '当前没有收藏'
         );
         // 返回正确数据
-        return returnData('success',$list);
+        return returnData('success',$goodIndexString);
 
     }
 
