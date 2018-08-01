@@ -10,9 +10,6 @@
 namespace app\collect_module\working_version\v1\dao;
 use think\Db;
 use app\collect_module\working_version\v1\model\CollectModel;
-use app\collect_module\working_version\v1\model\GoodModel;
-use app\collect_module\working_version\v1\model\PictureModel;
-use app\collect_module\working_version\v1\model\StyleModel;
 
 class CollectDao implements CollectInterface
 {
@@ -58,6 +55,7 @@ class CollectDao implements CollectInterface
         // 获取表明
         $collectTable = config('v1_tableName.CollectTable');
         $goodTable    = config('v1_tableName.GoodTable');
+        $pictureTable = config('v1_tableName.PictureTable');
         // 获取数据
         $list = CollectModel::where(
             'user_token',
@@ -65,6 +63,9 @@ class CollectDao implements CollectInterface
         )->leftJoin(
             $goodTable,
             "{$collectTable}.good_index = {$goodTable}.good_index"
+        )->leftJoin(
+            $pictureTable,
+            "{$goodTable}.good_img_master = {$goodTable}.gdimg_index"
         )->select()->toArray();
         // 判断是否有数据
         if(!$list) return returnData(
