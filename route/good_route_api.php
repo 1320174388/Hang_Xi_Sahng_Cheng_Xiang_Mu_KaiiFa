@@ -48,5 +48,14 @@ Route::group('v1/good_module/', function(){
         'good_put/:token',
         'good_module/v1.controller.GoodController/goodPut'
     );
+    /**
+     * 路由名称: good_get
+     * 传值方式: GET
+     * 路由功能: 获取商品详情数据
+     */
+    Route::get(
+        'good_get/:token',
+        'good_module/v1.controller.GoodController/goodGet'
+    );
 
 })->middleware('Right_v3_IsAdmin');

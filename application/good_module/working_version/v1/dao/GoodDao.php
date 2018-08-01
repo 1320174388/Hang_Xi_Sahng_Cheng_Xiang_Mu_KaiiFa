@@ -244,4 +244,19 @@ class GoodDao implements GoodInterface
             return returnData('error','修改失败');
         }
     }
+
+    /**
+     * 名  称 : goodUpdate()
+     * 功  能 : 获取商品详情数据
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>[
+     *              "goodData"=>"商品详情数据","msgList"=>"评论信息"
+     *          ]]
+     * 创  建 : 2018/08/01 17:11
+     */
+    public function goodSelect($get)
+    {
+        // 获取商品详情数据
+    }
 }
