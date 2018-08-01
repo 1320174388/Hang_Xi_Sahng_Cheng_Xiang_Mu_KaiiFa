@@ -72,7 +72,7 @@ class CollectDao implements CollectInterface
         foreach($list as $key=>$value){
             $goodIndexString .= $value['good_index'].',';
         }
-        rtrim($goodIndexString,',');
+        $goodIndexString = rtrim($goodIndexString,',');
         // 判断是否有数据
         if(!$list) return returnData(
             'error',
