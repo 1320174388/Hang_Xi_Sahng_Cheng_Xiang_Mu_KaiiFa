@@ -57,25 +57,40 @@ class CollectDao implements CollectInterface
         $goodTable    = config('v1_tableName.GoodTable');
         $pictureTable = config('v1_tableName.PictureTable');
         // 获取数据
-        $list = CollectModel::where(
+        $data = CollectModel::where(
             'user_token',
             $get['userToken']
         )->leftJoin(
             $goodTable,
             "{$collectTable}.good_index = {$goodTable}.good_index"
-        )->leftJoin(
-            $pictureTable,
-            "{$goodTable}.good_img_master = {$pictureTable}.gdimg_index"
-        )->select()->toArray();
+        );
+        $goodlist = $data->select()->toArray();
+
         // 判断是否有数据
-        if(!$list) return returnData(
+        if(!$goodlist) return returnData(
             'error',
             '当前没有收藏'
         );
 
+        $imgList  = $data->leftJoin(
+            $pictureTable,
+            "{$goodTable}.good_img_master = {$pictureTable}.gdimg_index"
+        )->select()->toArray();
 
+        foreach($goodlist as $k=>$v)
+        {
+            $goodlist[$k]['image'] = [];
+            foreach($imgList as $i=>$j)
+            {
+                if($v['good_img_master']==$j['gdimg_index'])
+                {
+                    $goodlist[$k]['image'][] = $j['picture_url'];
+                }
+            }
+        }
+        
         // 返回正确数据
-        return returnData('success',$list);
+        return returnData('success',$goodlist);
 
     }
 
