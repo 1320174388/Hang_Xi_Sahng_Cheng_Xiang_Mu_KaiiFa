@@ -66,7 +66,7 @@ class CollectDao implements CollectInterface
         )->leftJoin(
             $goodTable,
             "{$collectTable}.good_index = {$goodTable}.good_index"
-        )->fullJoin(
+        )->join(
             $styleTable,
             "{$goodTable}.good_index = {$styleTable}.good_index"
         )->select();
