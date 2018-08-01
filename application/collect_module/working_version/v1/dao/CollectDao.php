@@ -79,16 +79,16 @@ class CollectDao implements CollectInterface
 
         foreach($goodlist as $k=>$v)
         {
-            $goodlist[$k]['image'] = [];
+            $goodlist[$k]['image_url'] = [];
             foreach($imgList as $i=>$j)
             {
                 if($v['good_img_master']==$j['gdimg_index'])
                 {
-                    $goodlist[$k]['image'][] = $j['picture_url'];
+                    $goodlist[$k]['image_url'][] = $j['picture_url'];
                 }
             }
         }
-        
+
         // 返回正确数据
         return returnData('success',$goodlist);
 
