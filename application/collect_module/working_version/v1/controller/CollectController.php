@@ -49,7 +49,7 @@ class CollectController extends Controller
      * 变  量 : --------------------------------------
      * 输  入 : (String) $get['userToken'] => '用户标识';
      * 输  入 : (String) $get['goodIndex'] => '商品标识';
-     * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":true}
+     * 输  出 : {"errNum":0,"retMsg":"已收藏","retData":true}
      * 创  建 : 2018/08/01 10:45
      */
     public function collectIsGet(Request $request)
