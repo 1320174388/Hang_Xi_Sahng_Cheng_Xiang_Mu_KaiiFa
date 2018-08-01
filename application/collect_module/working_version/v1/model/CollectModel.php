@@ -23,14 +23,4 @@ class CollectModel extends Model
     {
         $this->table = config('v1_tableName.CollectTable');
     }
-
-    // 关联模型
-    public function profile()
-    {
-        return $this->hasOne(
-            'GoodModel',
-            'good_index',
-        'good_index'
-        );
-    }
 }

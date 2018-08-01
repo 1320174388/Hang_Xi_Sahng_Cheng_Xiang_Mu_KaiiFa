@@ -66,6 +66,9 @@ class CollectDao implements CollectInterface
         )->leftJoin(
             $goodTable,
             "{$collectTable}.good_index = {$goodTable}.good_index"
+        )->fullJoin(
+            $styleTable,
+            "{$goodTable}.good_index = {$styleTable}.good_index"
         )->select();
         // 判断是否有数据
         if(!$list) return returnData(
