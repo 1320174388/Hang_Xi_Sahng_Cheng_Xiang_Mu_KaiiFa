@@ -65,7 +65,7 @@ class CollectDao implements CollectInterface
             "{$collectTable}.good_index = {$goodTable}.good_index"
         )->leftJoin(
             $pictureTable,
-            "{$goodTable}.good_img_master = {$goodTable}.gdimg_index"
+            "{$goodTable}.good_img_master = {$pictureTable}.gdimg_index"
         )->select()->toArray();
         // 判断是否有数据
         if(!$list) return returnData(
