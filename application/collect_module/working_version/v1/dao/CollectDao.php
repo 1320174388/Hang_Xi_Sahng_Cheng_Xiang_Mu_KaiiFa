@@ -136,10 +136,10 @@ class CollectDao implements CollectInterface
         // 获取数据
         $res = CollectModel::where(
             'user_token',
-            $get['userToken']
+            $delete['userToken']
         )->where(
             'good_index',
-            $get['goodIndex']
+            $delete['goodIndex']
         )->delete();
         // 判断是否有数据
         if(!$res) return returnData(
