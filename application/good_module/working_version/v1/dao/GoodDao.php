@@ -298,7 +298,7 @@ class GoodDao implements GoodInterface
         )->order(
             'critic_sort',
             'asc'
-        )->limit(4,3)->select()->toArray();
+        )->limit(1,3)->select()->toArray();
         // 返回正确数据
         return returnData('success',[
             "goodData"   => $goodData,
