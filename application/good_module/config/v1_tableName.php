@@ -18,4 +18,6 @@ return [
     'StyleTable' => 'data_goods_styles',
     // 商品图片信息标
     'PictureTable' => 'data_goods_pictures',
+    // 商品评论信息表
+    'CriticTable' => 'data_critic_lists',
 ];

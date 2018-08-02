@@ -12,6 +12,7 @@ use think\Db;
 use app\good_module\working_version\v1\model\GoodModel;
 use app\good_module\working_version\v1\model\StyleModel;
 use app\good_module\working_version\v1\model\PictureModel;
+use app\good_module\working_version\v1\model\CriticModel;
 
 class GoodDao implements GoodInterface
 {
@@ -290,7 +291,18 @@ class GoodDao implements GoodInterface
         // 载入商品规格信息
         $goodData['good_img_details'] = $pictureDetails;
 
+        // 获取商品评论信息
+        $criticList = CriticModel::where(
+            'good_index',
+            $get['goodIndex']
+        )->order(
+            'critic_sort',
+            'asc'
+        )->select()->toArray();
         // 返回正确数据
-        return returnData('success',["goodData"=>$goodData]);
+        return returnData('success',[
+            "goodData"   => $goodData,
+            "criticList" => $criticList
+        ]);
     }
 }
