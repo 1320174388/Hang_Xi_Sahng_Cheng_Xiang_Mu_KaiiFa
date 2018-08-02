@@ -281,7 +281,15 @@ class GoodDao implements GoodInterface
         if(!$goodData) return returnData('error','商品主图片获取失败');
         // 载入商品规格信息
         $goodData['good_img_master'] = $pictureMaster;
-        
+
+        // 获取商品详情图片信息
+        $pictureDetails = PictureModel::where(
+            'gdimg_index',
+            $goodData['good_img_details']
+        )->select()->toArray();
+        // 载入商品规格信息
+        $goodData['good_img_details'] = $pictureDetails;
+
         // 返回正确数据
         return returnData('success',["goodData"=>$goodData]);
     }
