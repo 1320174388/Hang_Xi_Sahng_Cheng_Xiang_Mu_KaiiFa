@@ -127,7 +127,7 @@ class GoodController extends Controller
         // 实例化Service业务逻辑代码
         $goodService = new GoodService();
         // 获取传值数据
-        $get = $request->put();
+        $get = $request->get();
         // 执行业务逻辑处理
         $res = $goodService->goodGet($get);
         // 验证返回数据
