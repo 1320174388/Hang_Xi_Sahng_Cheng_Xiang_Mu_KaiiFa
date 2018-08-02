@@ -258,5 +258,13 @@ class GoodDao implements GoodInterface
     public function goodSelect($get)
     {
         // 获取商品详情数据
+        $goodData = GoodModel::get($get['goodIndex']);
+        // 判断商品是否存在
+        if(!$goodData) return returnData(
+            'error',
+            '商品已被删除'
+        );
+        // 返回正确数据
+        return returnData('success',["goodData"=>$goodData]);
     }
 }
