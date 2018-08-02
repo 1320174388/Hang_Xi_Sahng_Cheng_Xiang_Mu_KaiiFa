@@ -169,4 +169,31 @@ class GoodController extends Controller
         // 返回正确数据
         return returnResponse(0,'请求成功',$res['data']);
     }
+
+    /**
+     * 名  称 : goodCriticDel()
+     * 功  能 : 删除商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['criticIndex'] => '评论主键'
+     * 输  出 : {"errNum":0,"retMsg":"删除成功","retData":true}
+     * 创  建 : 3018/08/02 18:28
+     */
+    public function goodCriticDel(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $goodService = new GoodService();
+        // 获取传值数据
+        $delete = $request->delete();
+        // 执行业务逻辑处理
+        $res = $goodService->criticDel($delete);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,'请求成功',$res['data']);
+    }
 }

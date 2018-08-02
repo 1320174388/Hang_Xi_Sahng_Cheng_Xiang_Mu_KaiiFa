@@ -79,4 +79,14 @@ interface GoodInterface
      * 创  建 : 2018/08/02 15:18
      */
     public function criticSelect($get);
+
+    /**
+     * 名  称 : criticDelete()
+     * 功  能 : 删除商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['criticIndex'] => '评论主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function criticDelete($delete);
 }

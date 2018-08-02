@@ -83,5 +83,14 @@ Route::group('v1/good_module/', function(){
         'good_critic/:token',
         'good_module/v1.controller.GoodController/goodCritic'
     );
+    /**
+     * 路由名称: good_critic_del
+     * 传值方式: DELETE
+     * 路由功能: 删除商品评论接口
+     */
+    Route::delete(
+        'good_critic_del/:token',
+        'good_module/v1.controller.GoodController/goodCriticDel'
+    );
 
 })->middleware('Right_v3_IsAdmin');

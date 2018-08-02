@@ -331,4 +331,36 @@ class GoodDao implements GoodInterface
             "criticList" => $criticList
         ]);
     }
+
+    /**
+     * 名  称 : criticDelete()
+     * 功  能 : 删除商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['criticIndex'] => '评论主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function criticDelete($delete)
+    {
+        // 获取商品评论信息
+        $criticList = CriticModel::get($delete['criticIndex']);
+
+        // 判断是否评论信息
+        if(!$criticList) return returnData(
+            'error',
+            '没有这条评论'
+        );
+
+        // 执行删除评论信息
+        $res = $criticList->delete();
+
+        // 判断是否删除成功
+        if(!$res) return returnData(
+            'error',
+            '删除失败'
+        );
+
+        // 返回正确数据
+        return returnData('success','删除成功');
+    }
 }
