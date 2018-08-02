@@ -260,21 +260,28 @@ class GoodDao implements GoodInterface
         // 获取商品详情数据
         $goodData = GoodModel::get($get['goodIndex'])->toArray();
         // 判断商品是否存在
-        if(!$goodData) return returnData(
-            'error',
-            '商品已被删除'
-        );
+        if(!$goodData) return returnData('error', '商品已被删除');
+
         // 获取商品规格数据
         $styleData = StyleModel::where(
             'good_index',
             $get['goodIndex']
         )->select()->toArray();
         // 判断商品规格是否存在
-        if(!$goodData) return returnData(
-            'error',
-            '商品规格错误'
-        );
+        if(!$goodData) return returnData('error','商品规格错误');
+        // 载入商品规格信息
         $goodData['style_data'] = $styleData;
+
+        // 获取商品主图片信息
+        $pictureMaster = PictureModel::where(
+            'gdimg_index',
+            $goodData['good_img_master']
+        )->select()->toArray();
+        // 判断商品猪图片是否存在
+        if(!$goodData) return returnData('error','商品主图片获取失败');
+        // 载入商品规格信息
+        $goodData['good_img_master'] = $pictureMaster;
+        
         // 返回正确数据
         return returnData('success',["goodData"=>$goodData]);
     }
