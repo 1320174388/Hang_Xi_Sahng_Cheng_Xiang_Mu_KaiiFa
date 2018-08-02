@@ -138,6 +138,6 @@ class GoodController extends Controller
             );
         }
         // 返回正确数据
-        return returnResponse(0,$res['data'],true);
+        return returnResponse(0,'请求成功',$res['data']);
     }
 }
