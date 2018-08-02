@@ -9,6 +9,7 @@
  */
 namespace app\assortment_module\working_version\v1\service;
 use app\assortment_module\working_version\v1\dao\GoodsClassDao;
+use app\assortment_module\working_version\v1\validator\ClassDataValidator;
 class GoodsClassService
 {
     /**
@@ -22,13 +23,23 @@ class GoodsClassService
      */
     public function addClass($classData)
     {
-
-        $data = new GoodsClassDao();
+        //生成商品分类主键id
         $classData['class_index'] = md5(uniqid() . mt_rand(1, 999999999));
+        //验证商品分类数据
+        $dataCheck = new ClassDataValidator();
+        if(!$dataCheck->check($classData)){
+            //返回验证错误信息
+            return returnData('error', $dataCheck->getError());
+        }
+        //执行添加
+        $data = new GoodsClassDao();
         $reult = $data->add($classData);
-        if ($reult['data']) {
+        //执行添加结果
+        if ($reult['msg'] == 'success') {
+            //返回添加成功信息
             return returnData('success', $reult['data']);
         } else {
+            //返回添加失败信息
             return returnData('error', $reult['data']);
         }
     }
@@ -42,15 +53,18 @@ class GoodsClassService
      */
     public function getClass()
     {
+        //执行获取数据
         $D = (new GoodsClassDao())->query();
-        if($D['msg']=='error')
-            return returnData('error',$D['data']);
+        //返回数据为空
+        if($D['msg']=='error') return returnData('error',$D['data']);
         $masterClass = [];
+        //提取主分类
         foreach($D['data'] as $k=>$v){
             if($v['class_parent']==0){
                 $masterClass[] = $v->toArray();
             }
         }
+        //商品分类转化成二维数组
         foreach($masterClass as $k=>$v){
             $masterClass[$k]['son_class'] = [];
             foreach($D['data'] as $i=>$j){
@@ -59,6 +73,7 @@ class GoodsClassService
                 }
             }
         }
+        //返回商品分类数据
         return returnData('success',$masterClass);
     }
     /**
@@ -72,12 +87,19 @@ class GoodsClassService
     public function modifyClass($data)
     {
         $classDao = new GoodsClassDao();
-        $goodsData = $classDao->queryOne($data['class_index']);
+        //验证分类信息数据
+        $dataCheck = new ClassDataValidator();
+        if (!$dataCheck->check($data))
+        {
+            return returnData('error', $dataCheck->getError());
+        }
         //判断如果图片被修改删除原图片
+        $goodsData = $classDao->queryOne($data['class_index']);
         if($data['class_img_url'] !== $goodsData['data']['class_img_url'])
         {
-            unlink($goodsData['data']['class_img_url']);
+            @unlink($goodsData['data']['class_img_url']);
         }
+        //执行修改操作
        $reult = $classDao->modify($data);
         if ($reult['data']) {
             return returnData('success', $reult['data']);
@@ -96,6 +118,12 @@ class GoodsClassService
     public function delectClass($class_index)
     {
         $goodsClass = new GoodsClassDao();
+        //查询子分类
+        $sonClass = $goodsClass->sonQuery($class_index);
+        if ($sonClass['msg'] == 'success'){
+            return returnData('error','这个分类下有子分类不可删除');
+        }
+        //查询图片路径
         $goodsData = $goodsClass->queryOne($class_index);
         $reult = $goodsClass->delect($class_index);
         if ($reult['data']) {
