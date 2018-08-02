@@ -26,7 +26,7 @@ Route::get(
  * 路由功能: 获取商品评论信息接口
  */
 Route::get(
-    'critic_get',
+    'v1/good_module/critic_get',
     'good_module/v1.controller.GoodController/goodCritic'
 );
 
