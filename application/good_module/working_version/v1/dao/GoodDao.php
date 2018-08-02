@@ -264,6 +264,17 @@ class GoodDao implements GoodInterface
             'error',
             '商品已被删除'
         );
+        // 获取商品规格数据
+        $styleData = StyleModel::where(
+            'good_index',
+            $get['goodIndex']
+        )->select()->toArray();
+        // 判断商品规格是否存在
+        if(!$goodData) return returnData(
+            'error',
+            '商品规格错误'
+        );
+        $goodData['style_data'] = $styleData;
         // 返回正确数据
         return returnData('success',["goodData"=>$goodData]);
     }
