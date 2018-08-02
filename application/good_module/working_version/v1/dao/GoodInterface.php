@@ -67,4 +67,16 @@ interface GoodInterface
      * 创  建 : 2018/08/01 17:11
      */
     public function goodSelect($get);
+
+    /**
+     * 名  称 : criticSelect()
+     * 功  能 : 获取商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>[
+     *              "msgList"=>"评论信息"
+     *          ]]
+     * 创  建 : 2018/08/02 15:18
+     */
+    public function criticSelect($get);
 }

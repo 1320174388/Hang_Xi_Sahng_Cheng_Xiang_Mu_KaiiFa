@@ -140,4 +140,33 @@ class GoodController extends Controller
         // 返回正确数据
         return returnResponse(0,'请求成功',$res['data']);
     }
+
+    /**
+     * 名  称 : goodCritic()
+     * 功  能 : 获取商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":{
+     *              "msgList":"评论信息"
+     *          }}
+     * 创  建 : 2018/08/02 15:18
+     */
+    public function goodCritic(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $goodService = new GoodService();
+        // 获取传值数据
+        $get = $request->get();
+        // 执行业务逻辑处理
+        $res = $goodService->criticGet($get);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,'请求成功',$res['data']);
+    }
 }

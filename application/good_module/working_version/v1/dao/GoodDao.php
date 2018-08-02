@@ -305,4 +305,30 @@ class GoodDao implements GoodInterface
             "criticList" => $criticList
         ]);
     }
+
+    /**
+     * 名  称 : criticSelect()
+     * 功  能 : 获取商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>[
+     *              "msgList"=>"评论信息"
+     *          ]]
+     * 创  建 : 2018/08/02 15:18
+     */
+    public function criticSelect($get)
+    {
+        // 获取商品评论信息
+        $criticList = CriticModel::where(
+            'good_index',
+            $get['goodIndex']
+        )->order(
+            'critic_sort',
+            'asc'
+        )->limit(0,12)->select()->toArray();
+        // 返回正确数据
+        return returnData('success',[
+            "criticList" => $criticList
+        ]);
+    }
 }

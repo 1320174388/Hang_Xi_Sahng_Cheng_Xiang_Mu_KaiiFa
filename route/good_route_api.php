@@ -65,5 +65,14 @@ Route::group('v1/good_module/', function(){
         'good_get/:token',
         'good_module/v1.controller.GoodController/goodGet'
     );
+    /**
+     * 路由名称: good_critic
+     * 传值方式: GET
+     * 路由功能: 获取商品评论信息接口
+     */
+    Route::get(
+        'good_critic/:token',
+        'good_module/v1.controller.GoodController/goodCritic'
+    );
 
 })->middleware('Right_v3_IsAdmin');
