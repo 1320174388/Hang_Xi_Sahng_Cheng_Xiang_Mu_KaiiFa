@@ -379,7 +379,7 @@ class GoodDao implements GoodInterface
         Db::startTrans();
         try{
             // 获取商品信息数据
-            $goodModelList = GoodModel::get($delete['goodIndex']);、
+            $goodModelList = GoodModel::get($delete['goodIndex']);
 
             return returnData('error',$goodModelList);
 
