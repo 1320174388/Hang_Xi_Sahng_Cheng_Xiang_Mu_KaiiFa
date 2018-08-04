@@ -466,16 +466,20 @@ class GoodDao implements GoodInterface
             {
                 $classString .= $v['class_index'].',';
             }
-            $classString = rtrim($classString,',');
+            // 处理查询条件
+            $goodModel = GoodModel::where(
+                'class_index',
+                'in',
+                rtrim($classString,',')
+            );
         }else{
-            $classString = $get['classIndex'];
+            $goodModel = GoodModel::where(
+                'class_index',
+                $get['classIndex']
+            );
         }
         // 获取商品数据
-        $goodList = GoodModel::where(
-            'class_index',
-            'in',
-            $classString
-        )->select()->toArray();
+        $goodList = $goodModel->select()->toArray();
 
         // 返回正确数据
         return returnData('success',$goodList);
