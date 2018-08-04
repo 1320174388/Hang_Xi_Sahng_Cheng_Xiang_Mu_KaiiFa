@@ -482,7 +482,10 @@ class GoodDao implements GoodInterface
             );
         }
         // 获取商品数据
-        $goodList = $goodModel->select()->toArray();
+        $goodList = GoodModel::where(
+            'class_index',
+            $classData['class_index']
+        )->select()->toArray();
 
         // 返回正确数据
         return returnData('success',$goodList);
