@@ -461,8 +461,23 @@ class GoodDao implements GoodInterface
                 $classData['class_index']
             )->select()->toArray();
             // 拼接子类信息
+            $classString = '';
+            foreach($classList as $k=>$v)
+            {
+                $classString .= $classList['class_index'].',';
+            }
+            $classString = rtrim($classString,',');
+        }else{
+            $classString = $get['classIndex'];
         }
+        // 获取商品数据
+        $goodList = GoodModel::where(
+            'class_index',
+            'in',
+            $classString
+        )->select()->toArray();
+
         // 返回正确数据
-        return returnData('success',$classList);
+        return returnData('success',$goodList);
     }
 }
