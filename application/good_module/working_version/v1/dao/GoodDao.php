@@ -405,7 +405,7 @@ class GoodDao implements GoodInterface
             )->delete();
 
             // 删除商品数据
-            $goodModelList->select();
+            $goodModelList->delete();
 
             // 提交事务
             Db::commit();
