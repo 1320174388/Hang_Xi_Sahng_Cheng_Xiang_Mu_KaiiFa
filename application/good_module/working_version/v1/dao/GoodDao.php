@@ -490,6 +490,6 @@ class GoodDao implements GoodInterface
         $goodList = $goodModel->find();
 
         // 返回正确数据
-        return returnData('success',$goodList);
+        return returnData('success',$get['classIndex']);
     }
 }
