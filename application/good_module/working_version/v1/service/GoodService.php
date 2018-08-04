@@ -281,8 +281,8 @@ class GoodService
      */
     public function goodDel()
     {
-        // 判断 $delete['criticIndex'] 是否有值
-        if(empty($delete['criticIndex'])) return returnData(
+        // 判断 $delete['goodIndex'] 是否有值
+        if(empty($delete['goodIndex'])) return returnData(
             'error',
             '请发送商品主键'
         );
