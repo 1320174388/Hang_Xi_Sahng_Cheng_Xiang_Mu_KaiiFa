@@ -106,8 +106,7 @@ interface GoodInterface
      * 变  量 : --------------------------------------
      * 输  入 : (String) $get['classIndex'] => '分类主键';
      * 输  入 : (String) $get['goodLimit']  => '商品页码';
-     * 输  入 : (String) $get['sortType']   => '排序类型';
-     * 输  入 : (String) $get['saleStatus'] => '排序状态';
+     * 输  入 : (String) $get['orderType']  => '排序类型'; no/asc/desc/sale
      * 输  出 : ['msg'=>'success','data'=>'提示信息']
      * 创  建 : 2018/08/04 16:00
      */

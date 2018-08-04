@@ -17,11 +17,13 @@ class GoodGetValidate extends Validate
      * 功  能 : 定义验证规则
      * 输  入 : (String) $get['classIndex'] => '分类主键';
      * 输  入 : (String) $get['goodLimit']  => '商品页码';
+     * 输  入 : (String) $get['orderType']  => '排序类型'; no/asc/desc/sale
      * 创  建 : 2018/08/04 15:38
      */
     protected $rule = [
         'classIndex' => 'require|min:32|max:32',
         'goodLimit'  => 'require|number',
+        'orderType'  => 'require',
     ];
     /**
      * 名  称 : $message => '静态属性'
@@ -34,5 +36,6 @@ class GoodGetValidate extends Validate
         'classIndex.max'     => '请正确输入分类标识',
         'goodLimit.require'  => '请正确输入商品页码',
         'goodLimit.number'   => '请正确输入商品页码',
+        'orderType.require'  => '请输入价格排序',
     ];
 }

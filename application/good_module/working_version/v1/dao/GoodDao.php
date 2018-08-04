@@ -443,9 +443,8 @@ class GoodDao implements GoodInterface
      * 功  能 : 获取商品列表数据信息
      * 变  量 : --------------------------------------
      * 输  入 : (String) $get['classIndex'] => '分类主键';
-     * 输  入 : (String) $get['goodLimit']  => '商品数量';
-     * 输  入 : (String) $get['sortType']   => '排序类型';
-     * 输  入 : (String) $get['saleStatus'] => '排序状态';
+     * 输  入 : (String) $get['goodLimit']  => '商品页码';
+     * 输  入 : (String) $get['orderType']  => '排序类型'; no/asc/desc/sale
      * 输  出 : ['msg'=>'success','data'=>'提示信息']
      * 创  建 : 2018/08/04 16:00
      */
@@ -485,6 +484,27 @@ class GoodDao implements GoodInterface
                 $get['classIndex']
             );
         }
+
+        // 判断价格排序类型
+        if($get['orderType']=='asc')
+        {
+            $goodModel = $goodModel->order('good_price', 'asc');
+        }
+
+        // 判断价格排序类型
+        if($get['orderType']=='desc')
+        {
+            $goodModel = $goodModel->order('good_price', 'desc');
+        }
+
+        // 判断销量排序类型
+        if($get['orderType']=='sale')
+        {
+            $goodModel = $goodModel->order('good_sales', 'asc');
+        }
+
+        // 分页
+        $goodModel = $goodModel->limit($get['goodLimit'],12);
 
         // 获取商品数据
         $goodList = $goodModel->select()->toArray();
