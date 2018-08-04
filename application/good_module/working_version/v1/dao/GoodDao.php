@@ -473,8 +473,10 @@ class GoodDao implements GoodInterface
                 rtrim($classString,',')
             );
         }else{
+            // 处理查询条件
             $goodModel = GoodModel::where(
                 'class_index',
+                '=',
                 $get['classIndex']
             );
         }
