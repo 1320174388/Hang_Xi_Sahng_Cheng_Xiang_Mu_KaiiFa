@@ -387,18 +387,21 @@ class GoodDao implements GoodInterface
                 $delete['goodIndex']
             )->delete();
 
-            return returnData('error',$goodModelList);s
-
             // 删除商品主图片数据
-            StyleModel::where(
+            PictureModel::where(
                 'gdimg_index',
                 $goodModelList['good_img_master']
             )->delete();
 
             // 删除商品详情图片数据
-            StyleModel::where(
+            PictureModel::where(
                 'gdimg_index',
                 $goodModelList['good_img_details']
+            )->delete();
+
+            CriticModel::where(
+                'good_index',
+                $delete['goodIndex']
             )->delete();
 
             // 删除商品数据
