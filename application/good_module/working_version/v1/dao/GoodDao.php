@@ -464,7 +464,7 @@ class GoodDao implements GoodInterface
             $classString = '';
             foreach($classList as $k=>$v)
             {
-                $classString .= $classList['class_index'].',';
+                $classString .= $v['class_index'].',';
             }
             $classString = rtrim($classString,',');
         }else{
