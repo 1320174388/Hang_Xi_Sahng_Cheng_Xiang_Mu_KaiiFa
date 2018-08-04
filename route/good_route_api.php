@@ -29,6 +29,15 @@ Route::get(
     'v1/good_module/critic_get',
     'good_module/v1.controller.GoodController/goodCritic'
 );
+/**
+ * 路由名称: good_get_list
+ * 传值方式: GET
+ * 路由功能: 获取商品列表数据
+ */
+Route::get(
+    'v1/good_module/good_get_list',
+    'good_module/v1.controller.GoodController/goodGetList'
+);
 
 // +------------------------------------------------------
 // : 路由分组：v1/good_module/ 中间件：Right_v3_IsAdmin

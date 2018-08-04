@@ -11,6 +11,7 @@ namespace app\good_module\working_version\v1\service;
 use app\good_module\working_version\v1\dao\GoodDao;
 use app\good_module\working_version\v1\validator\GoodValidate;
 use app\good_module\working_version\v1\validator\ImageValidate;
+use app\good_module\working_version\v1\validator\GoodGetValidate;
 
 class GoodService
 {
@@ -291,6 +292,47 @@ class GoodService
         $goodDao = new GoodDao();
         // 执行写入数据操作函数
         $res =  $goodDao->goodDelete($delete);
+        // 判断数据是否请求成功，返回错误数据
+        if($res['msg']=='error')
+        {
+            return returnData(
+                'error',
+                $res['data']
+            );
+        }
+
+        // 返回正确数据
+        return returnData('success',$res['data']);
+    }
+
+    /**
+     * 名  称 : goodList()
+     * 功  能 : 获取商品列表数据
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['classIndex'] => '分类主键';
+     * 输  入 : (String) $get['goodLimit']  => '商品页码';
+     * 输  入 : (String) $get['sortType']   => '排序类型';
+     * 输  入 : (String) $get['saleStatus'] => '排序状态';
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/04 14:24
+     */
+    public function goodList($get)
+    {
+        // 实例化验证器，验证数据是否正确
+        $goodGetValidate = new GoodGetValidate();
+        // 判断数据是否正确,返回错误数据
+        if(!$goodGetValidate->check($get))
+        {
+            return returnData(
+                'error',
+                $goodGetValidate->getError()
+            );
+        }
+
+        // 实例化Dao数据操作类，写入数据
+        $goodDao = new GoodDao();
+        // 执行获取数据操作函数
+        $res =  $goodDao->goodSelectList($get);
         // 判断数据是否请求成功，返回错误数据
         if($res['msg']=='error')
         {

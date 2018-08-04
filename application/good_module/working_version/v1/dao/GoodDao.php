@@ -13,6 +13,7 @@ use app\good_module\working_version\v1\model\GoodModel;
 use app\good_module\working_version\v1\model\StyleModel;
 use app\good_module\working_version\v1\model\PictureModel;
 use app\good_module\working_version\v1\model\CriticModel;
+use app\assortment_module\working_version\v1\model\GoodsClassModel;
 
 class GoodDao implements GoodInterface
 {
@@ -435,5 +436,33 @@ class GoodDao implements GoodInterface
             // 返回正确数据
             return returnData('error','删除失败');
         }
+    }
+
+    /**
+     * 名  称 : goodSelectList()
+     * 功  能 : 获取商品列表数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['classIndex'] => '分类主键';
+     * 输  入 : (String) $get['goodLimit']  => '商品数量';
+     * 输  入 : (String) $get['sortType']   => '排序类型';
+     * 输  入 : (String) $get['saleStatus'] => '排序状态';
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/04 16:00
+     */
+    public function goodSelectList($get)
+    {
+        // 获取分类信息
+        $classData = GoodsClassModel::get($get['classIndex']);
+        // 判断分类是不是顶级分类
+        if($classData['class_parent']==0) {
+            // 获取子类商品
+            $classList = GoodsClassModel::where(
+                'class_parent',
+                $classData['class_parent']
+            );
+            // 拼接子类信息
+        }
+        // 返回正确数据
+        return returnData('success',$classList);
     }
 }

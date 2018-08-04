@@ -223,4 +223,34 @@ class GoodController extends Controller
         // 返回正确数据
         return returnResponse(0,$res['data'],true);
     }
+
+    /**
+     * 名  称 : goodGetList()
+     * 功  能 : 获取商品列表数据
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['classIndex'] => '分类主键';
+     * 输  入 : (String) $get['goodLimit']  => '商品页码';
+     * 输  入 : (String) $get['sortType']   => '排序类型';
+     * 输  入 : (String) $get['saleStatus'] => '排序状态';
+     * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":"数据"}
+     * 创  建 : 2018/08/04 14:24
+     */
+    public function goodGetList(Request $request)
+    {
+        // 实例化Service业务逻辑代码
+        $goodService = new GoodService();
+        // 获取传值数据
+        $get = $request->get();
+        // 执行业务逻辑处理
+        $res = $goodService->goodList($get);
+        // 验证返回数据
+        if($res['msg']=='error')
+        {
+            return returnResponse(
+                1, $res['data']
+            );
+        }
+        // 返回正确数据
+        return returnResponse(0,'请求成功',$res['data']);
+    }
 }
