@@ -455,6 +455,10 @@ class GoodDao implements GoodInterface
         $classData = GoodsClassModel::get($get['classIndex']);
         // 判断是否有这个分类
         if(!$classData) return returnData('error','没有这个类别');
+
+        // 示例话商品模型
+        $goodModel =  new GoodModel();
+
         // 判断分类是不是顶级分类
         if($classData['class_parent']==0) {
             // 获取子类商品
@@ -469,20 +473,20 @@ class GoodDao implements GoodInterface
                 $classString .= $v['class_index'].',';
             }
             // 处理查询条件
-            $goodModel = GoodModel::where(
+            $goodModel = $goodModel->where(
                 'class_index',
                 'in',
                 rtrim($classString,',')
             );
         }else{
             // 处理查询条件
-            $goodModel = GoodModel::where(
+            $goodModel = $goodModel->where(
                 'class_index',
                 $classData['class_index']
             );
         }
         // 获取商品数据
-        $goodList = GoodModel::where(
+        $goodList = $goodModel->where(
             'class_index',
             $classData['class_index']
         )->select()->toArray();
