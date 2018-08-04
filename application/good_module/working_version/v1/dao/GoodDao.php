@@ -387,17 +387,35 @@ class GoodDao implements GoodInterface
                 $delete['goodIndex']
             )->delete();
 
-            // 删除商品主图片数据
-            PictureModel::where(
+            // 配置主图片数据条件
+            $picrureMaster = PictureModel::where(
                 'gdimg_index',
                 $goodModelList['good_img_master']
-            )->delete();
+            );
+            // 获取商品图片信息
+            $maserData = $picrureMaster->select()->toArray();
+            // 删除主图片文件数据信息
+            foreach($maserData as $k=>$v)
+            {
+                if(unlink('.'.$v['picture_url']));
+            }
+            // 删除商品图片信息
+            $picrureMaster->delete();
 
-            // 删除商品详情图片数据
-            PictureModel::where(
+            // 配置商品详情图片数据
+            $picrureDetails = PictureModel::where(
                 'gdimg_index',
                 $goodModelList['good_img_details']
-            )->delete();
+            );
+            // 获取商品详情图片数据
+            $detailData = $picrureDetails->select()->toArray();
+            // 删除商品详情图片数据
+            foreach($detailData as $k=>$v)
+            {
+                if(unlink('.'.$v['picture_url']));
+            }
+            // 删除商品图片信息
+            $picrureDetails->delete();
 
             CriticModel::where(
                 'good_index',
