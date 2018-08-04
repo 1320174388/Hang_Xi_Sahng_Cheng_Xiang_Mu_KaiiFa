@@ -476,7 +476,7 @@ class GoodDao implements GoodInterface
                 rtrim($classString,',')
             );
         }
-        
+
         // 判断分类是不是顶级分类
         if($classData['class_parent']!=0) {
             // 处理查询条件
@@ -487,7 +487,7 @@ class GoodDao implements GoodInterface
         }
 
         // 获取商品数据
-        $goodList = $goodModel->select()->toArray();
+        $goodList = $goodModel->find();
 
         // 返回正确数据
         return returnData('success',$goodList);
