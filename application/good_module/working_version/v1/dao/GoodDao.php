@@ -459,7 +459,7 @@ class GoodDao implements GoodInterface
             $classList = GoodsClassModel::where(
                 'class_parent',
                 $classData['class_parent']
-            );
+            )->select()->toArray();
             // 拼接子类信息
         }
         // 返回正确数据
