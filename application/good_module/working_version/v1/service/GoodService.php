@@ -279,7 +279,7 @@ class GoodService
      * 输  出 : ['msg'=>'success','data'=>'提示信息']
      * 创  建 : 2018/08/02 18:30
      */
-    public function goodDel()
+    public function goodDel($delete)
     {
         // 判断 $delete['goodIndex'] 是否有值
         if(empty($delete['goodIndex'])) return returnData(
