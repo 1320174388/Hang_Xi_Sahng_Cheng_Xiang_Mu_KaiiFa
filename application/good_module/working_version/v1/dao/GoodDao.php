@@ -458,7 +458,7 @@ class GoodDao implements GoodInterface
             // 获取子类商品
             $classList = GoodsClassModel::where(
                 'class_parent',
-                $classData['class_parent']
+                $classData['class_index']
             )->select()->toArray();
             // 拼接子类信息
         }
