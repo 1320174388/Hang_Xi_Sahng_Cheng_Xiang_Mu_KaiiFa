@@ -456,7 +456,7 @@ class GoodDao implements GoodInterface
         if(!$classData) return returnData('error','没有这个类别');
 
         // 判断分类是不是顶级分类
-        if($classData['class_parent']==0) {
+        if($classData['class_parent']===0) {
             // 获取子类商品
             $classList = GoodsClassModel::where(
                 'class_parent',
