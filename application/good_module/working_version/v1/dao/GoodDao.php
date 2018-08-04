@@ -363,4 +363,54 @@ class GoodDao implements GoodInterface
         // 返回正确数据
         return returnData('success','删除成功');
     }
+
+    /**
+     * 名  称 : goodDelete()
+     * 功  能 : 删除商品数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function goodDelete($delete)
+    {
+
+        // 启动事务
+        Db::startTrans();
+        try{
+            // 获取商品信息数据
+            $goodModelList = GoodModel::get($delete['goodIndex']);
+
+            // 删除商品规格数据
+            StyleModel::where(
+                'good_index',
+                $delete['goodIndex']
+            )->delete();
+
+            // 删除商品主图片数据
+            StyleModel::where(
+                'gdimg_index',
+                $goodModelList['good_img_master']
+            )->delete();
+
+            // 删除商品详情图片数据
+            StyleModel::where(
+                'gdimg_index',
+                $goodModelList['good_img_details']
+            )->delete();
+
+            // 删除商品数据
+            $goodModelList->select();
+
+            // 提交事务
+            Db::commit();
+            // 返回正确数据
+            return returnData('success','删除成功');
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            // 返回正确数据
+            return returnData('error','删除失败');
+        }
+    }
 }

@@ -270,4 +270,37 @@ class GoodService
         // 返回正确数据
         return returnData('success',$res['data']);
     }
+
+    /**
+     * 名  称 : goodDel()
+     * 功  能 : 删除商品数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function goodDel()
+    {
+        // 判断 $delete['criticIndex'] 是否有值
+        if(empty($delete['criticIndex'])) return returnData(
+            'error',
+            '请发送商品主键'
+        );
+
+        // 实例化Dao数据操作类，写入数据
+        $goodDao = new GoodDao();
+        // 执行写入数据操作函数
+        $res =  $goodDao->goodDelete($delete);
+        // 判断数据是否请求成功，返回错误数据
+        if($res['msg']=='error')
+        {
+            return returnData(
+                'error',
+                $res['data']
+            );
+        }
+
+        // 返回正确数据
+        return returnData('success',$res['data']);
+    }
 }

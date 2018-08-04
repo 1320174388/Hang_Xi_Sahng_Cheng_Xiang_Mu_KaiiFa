@@ -89,4 +89,14 @@ interface GoodInterface
      * 创  建 : 2018/08/02 18:30
      */
     public function criticDelete($delete);
+
+    /**
+     * 名  称 : goodDelete()
+     * 功  能 : 删除商品数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : ((String) $delete['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function goodDelete($delete);
 }

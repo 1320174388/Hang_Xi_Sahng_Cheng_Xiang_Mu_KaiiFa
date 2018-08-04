@@ -92,5 +92,14 @@ Route::group('v1/good_module/', function(){
         'good_critic_del/:token',
         'good_module/v1.controller.GoodController/goodCriticDel'
     );
+    /**
+     * 路由名称: good_delete
+     * 传值方式: DELETE
+     * 路由功能: 删除商品数据接口
+     */
+    Route::delete(
+        'good_delete/:token',
+        'good_module/v1.controller.GoodController/goodDelete'
+    );
 
 })->middleware('Right_v3_IsAdmin');
