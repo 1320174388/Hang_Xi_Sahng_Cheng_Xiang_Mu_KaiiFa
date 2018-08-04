@@ -453,6 +453,8 @@ class GoodDao implements GoodInterface
     {
         // 获取分类信息
         $classData = GoodsClassModel::get($get['classIndex']);
+        // 判断是否有这个分类
+        if(!$classData) return returnData('error','没有这个类别');
         // 判断分类是不是顶级分类
         if($classData['class_parent']==0) {
             // 获取子类商品
@@ -476,8 +478,7 @@ class GoodDao implements GoodInterface
             // 处理查询条件
             $goodModel = GoodModel::where(
                 'class_index',
-                '=',
-                $get['classIndex']
+                $classData['class_index']
             );
         }
         // 获取商品数据
