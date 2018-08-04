@@ -381,13 +381,13 @@ class GoodDao implements GoodInterface
             // 获取商品信息数据
             $goodModelList = GoodModel::get($delete['goodIndex']);
 
-            return returnData('error',$goodModelList);
-
             // 删除商品规格数据
             StyleModel::where(
                 'good_index',
                 $delete['goodIndex']
             )->delete();
+
+            return returnData('error',$goodModelList);s
 
             // 删除商品主图片数据
             StyleModel::where(
