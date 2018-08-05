@@ -455,24 +455,22 @@ class GoodDao implements GoodInterface
         // 判断是否有这个分类
         if(!$classData) return returnData('error','没有这个类别');
 
-        // 判断分类是不是顶级分类
-        if($classData['class_parent']!==0) {
-            $sonClassString = $get['classIndex'];
-        }else{
-            // 获取子类商品
-            $classList = GoodsClassModel::where(
-                'class_parent',
-                $classData['class_index']
-            )->select()->toArray();
-            // 拼接子类信息
-            $classString = '';
-            foreach($classList as $k=>$v)
-            {
-                $classString .= $v['class_index'].',';
-            }
-            // 子类条件字符串
-            $sonClassString = rtrim($classString,',');
+        // 获取子类商品
+        $classList = GoodsClassModel::where(
+            'class_parent',
+            $classData['class_index']
+        )->select();
+        // 拼接子类信息
+        $classString = '';
+        foreach($classList as $k=>$v)
+        {
+            $classString .= $v['class_index'].',';
         }
+        // 子类条件字符串
+        $sonClassString = rtrim(
+            $get['classIndex'].','.$classString,
+    ','
+        );
 
         // 处理查询条件
         $goodModel = GoodModel::where(
