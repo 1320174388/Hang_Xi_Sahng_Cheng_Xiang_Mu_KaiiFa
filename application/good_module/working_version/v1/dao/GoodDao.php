@@ -457,11 +457,7 @@ class GoodDao implements GoodInterface
 
         // 判断分类是不是顶级分类
         if($classData['class_parent']!==0) {
-            // 处理查询条件
-            $goodModel = GoodModel::where(
-                'class_index',
-                $get['classIndex']
-            );
+            $sonClassString = $get['classIndex'];
         }else{
             // 获取子类商品
             $classList = GoodsClassModel::where(
@@ -474,13 +470,16 @@ class GoodDao implements GoodInterface
             {
                 $classString .= $v['class_index'].',';
             }
-            // 处理查询条件
-            $goodModel = GoodModel::where(
-                'class_index',
-                'in',
-                rtrim($classString,',')
-            );
+            // 子类条件字符串
+            $sonClassString = rtrim($classString,',');
         }
+
+        // 处理查询条件
+        $goodModel = GoodModel::where(
+            'class_index',
+            'in',
+            $sonClassString
+        );
 
         // 判断价格排序类型
         if($get['orderType']=='asc')
