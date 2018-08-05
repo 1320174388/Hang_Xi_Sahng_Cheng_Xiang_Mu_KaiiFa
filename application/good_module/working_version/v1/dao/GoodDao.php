@@ -503,6 +503,34 @@ class GoodDao implements GoodInterface
         // 获取商品数据
         $goodList = $goodModel->select()->toArray();
 
+        // 获取所有商品详情图片
+        $pictureString = '';
+        foreach($goodList as $k=>$v)
+        {
+            $pictureString .= $v['good_img_master'].',';
+        }
+        $pictureString = rtrim($pictureString,',');
+
+        // 获取所有商品图片
+        $pictureModel = PictureModel::where(
+            'gdimg_index',
+            'in',
+            $pictureString
+        )->select()->toArray();
+
+        // 处理是商品图片
+        foreach($goodList as $k=>$v)
+        {
+            $goodList[$k]['image_url'] = [];
+            foreach($pictureModel as $i=>$j)
+            {
+                if($v['good_img_master']==$j['gdimg_index'])
+                {
+                    $goodList[$k]['image_url'][] = $j['picture_url'];
+                }
+            }
+        }
+
         // 返回正确数据
         return returnData('success',$goodList);
     }
