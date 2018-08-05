@@ -494,7 +494,7 @@ class GoodDao implements GoodInterface
         // 判断销量排序类型
         if($get['orderType']=='sale')
         {
-            $goodModel = $goodModel->order('good_sales', 'asc');
+            $goodModel = $goodModel->order('good_sales', 'desc');
         }
 
         // 分页
