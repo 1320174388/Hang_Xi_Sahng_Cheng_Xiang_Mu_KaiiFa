@@ -110,5 +110,14 @@ Route::group('v1/good_module/', function(){
         'good_delete/:token',
         'good_module/v1.controller.GoodController/goodDelete'
     );
+    /**
+     * 路由名称: good_get_list
+     * 传值方式: GET
+     * 路由功能: 获取商品列表数据
+     */
+    Route::get(
+        'good_list/:token',
+        'good_module/v1.controller.GoodController/goodGetList'
+    );
 
 })->middleware('Right_v3_IsAdmin');
