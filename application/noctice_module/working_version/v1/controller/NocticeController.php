@@ -9,6 +9,7 @@
  */
 namespace app\noctice_module\working_version\v1\controller;
 use think\Controller;
+use think\Request;
 use app\noctice_module\working_version\v1\service\NocticeService;
 
 class NocticeController extends Controller
@@ -45,12 +46,12 @@ class NocticeController extends Controller
      * 输  出 : {"errNum":0,"retMsg":"修改成功","retData":"公告内容"}
      * 创  建 : 2018/08/06 15:52
      */
-    public function nocticePut($put)
+    public function nocticePut(Request $request)
     {
         // 示例话逻辑层代码
         $nocticeService = new NocticeService();
         // 执行逻辑层代码
-        $res = $nocticeService->nocticeEdit($put);
+        $res = $nocticeService->nocticeEdit($request->put());
         // 验证返回数据
         if($res['msg']=='error') return returnResponse(
             1,
