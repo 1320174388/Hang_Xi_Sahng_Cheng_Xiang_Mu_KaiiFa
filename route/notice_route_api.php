@@ -34,7 +34,7 @@ Route::group('v1/noctice_module/', function(){
      * 传值方式: PUT
      * 路由功能: 修改公共信息接口
      */
-    Route::post(
+    Route::put(
         'noctice_put/:token',
         'noctice_module/v1.controller.NocticeController/nocticePut'
     );
