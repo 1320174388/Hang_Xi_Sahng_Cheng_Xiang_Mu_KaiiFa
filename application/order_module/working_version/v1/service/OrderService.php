@@ -37,8 +37,17 @@ class OrderService
         }
         //json数据转化为数组
         $orderGoods = json_decode($data['order_group'],true);
-        $data['many'] = $orderGoods;
 
+        //备份商品图片
+        foreach ($orderGoods as $key => $value){
+            //备份路径
+            $backupsUrl = '/uploads/backups'.strrchr($value['good_pic'],'/');
+            //执行备份
+            @copy('.'.$value['good_pic'],'.'.$backupsUrl);
+            //更新路径
+            $orderGoods[$key]['good_pic'] = $backupsUrl;
+        }
+        $data['many'] = $orderGoods;
         //默认未付款状态
         $data['order_status'] = 1;
 
