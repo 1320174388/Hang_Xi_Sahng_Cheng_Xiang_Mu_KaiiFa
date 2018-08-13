@@ -14,7 +14,7 @@ use think\Validate;
 class GoodsComment extends Validate
 {
 // +----------------------------------------------------------------------
-// | 检测数据字段
+// | 检测数据ziduan
 // +----------------------------------------------------------------------
 // | (string) `order_number`    => `订单号`
 // | (string) `user_token`      => `用户标识`
@@ -22,7 +22,7 @@ class GoodsComment extends Validate
 // | (string) `critic_content`  => `评论内容`
 // | (string) `critic_name`     => `评论昵称`
 // +----------------------------------------------------------------------
-    protected $rule = [
+    protected $only = [
         'order_number'      => 'require',
         'user_token'        => 'require',
         'good_index'        => 'require',
