@@ -20,6 +20,24 @@ Route::get(
     'v1/good_module/good_details',
     'good_module/v1.controller.GoodController/goodGet'
 );
+/**
+ * 路由名称: critic_get
+ * 传值方式: GET
+ * 路由功能: 获取商品评论信息接口
+ */
+Route::get(
+    'v1/good_module/critic_get',
+    'good_module/v1.controller.GoodController/goodCritic'
+);
+/**
+ * 路由名称: good_get_list
+ * 传值方式: GET
+ * 路由功能: 获取商品列表数据
+ */
+Route::get(
+    'v1/good_module/good_get_list',
+    'good_module/v1.controller.GoodController/goodGetList'
+);
 
 // +------------------------------------------------------
 // : 路由分组：v1/good_module/ 中间件：Right_v3_IsAdmin
@@ -64,6 +82,42 @@ Route::group('v1/good_module/', function(){
     Route::get(
         'good_get/:token',
         'good_module/v1.controller.GoodController/goodGet'
+    );
+    /**
+     * 路由名称: good_critic
+     * 传值方式: GET
+     * 路由功能: 获取商品评论信息接口
+     */
+    Route::get(
+        'good_critic/:token',
+        'good_module/v1.controller.GoodController/goodCritic'
+    );
+    /**
+     * 路由名称: good_critic_del
+     * 传值方式: DELETE
+     * 路由功能: 删除商品评论接口
+     */
+    Route::delete(
+        'good_critic_del/:token',
+        'good_module/v1.controller.GoodController/goodCriticDel'
+    );
+    /**
+     * 路由名称: good_delete
+     * 传值方式: DELETE
+     * 路由功能: 删除商品数据接口
+     */
+    Route::delete(
+        'good_delete/:token',
+        'good_module/v1.controller.GoodController/goodDelete'
+    );
+    /**
+     * 路由名称: good_get_list
+     * 传值方式: GET
+     * 路由功能: 获取商品列表数据
+     */
+    Route::get(
+        'good_list/:token',
+        'good_module/v1.controller.GoodController/goodGetList'
     );
 
 })->middleware('Right_v3_IsAdmin');

@@ -67,4 +67,48 @@ interface GoodInterface
      * 创  建 : 2018/08/01 17:11
      */
     public function goodSelect($get);
+
+    /**
+     * 名  称 : criticSelect()
+     * 功  能 : 获取商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>[
+     *              "msgList"=>"评论信息"
+     *          ]]
+     * 创  建 : 2018/08/02 15:18
+     */
+    public function criticSelect($get);
+
+    /**
+     * 名  称 : criticDelete()
+     * 功  能 : 删除商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['criticIndex'] => '评论主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function criticDelete($delete);
+
+    /**
+     * 名  称 : goodDelete()
+     * 功  能 : 删除商品数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : ((String) $delete['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function goodDelete($delete);
+
+    /**
+     * 名  称 : goodSelectList()
+     * 功  能 : 获取商品列表数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['classIndex'] => '分类主键';
+     * 输  入 : (String) $get['goodLimit']  => '商品页码';
+     * 输  入 : (String) $get['orderType']  => '排序类型'; no/asc/desc/sale
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/04 16:00
+     */
+    public function goodSelectList($get);
 }

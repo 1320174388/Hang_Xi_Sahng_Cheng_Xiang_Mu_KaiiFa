@@ -13,6 +13,7 @@ use app\good_module\working_version\v1\model\GoodModel;
 use app\good_module\working_version\v1\model\StyleModel;
 use app\good_module\working_version\v1\model\PictureModel;
 use app\good_module\working_version\v1\model\CriticModel;
+use app\assortment_module\working_version\v1\model\GoodsClassModel;
 
 class GoodDao implements GoodInterface
 {
@@ -304,5 +305,233 @@ class GoodDao implements GoodInterface
             "goodData"   => $goodData,
             "criticList" => $criticList
         ]);
+    }
+
+    /**
+     * 名  称 : criticSelect()
+     * 功  能 : 获取商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>[
+     *              "msgList"=>"评论信息"
+     *          ]]
+     * 创  建 : 2018/08/02 15:18
+     */
+    public function criticSelect($get)
+    {
+        // 获取商品评论信息
+        $criticList = CriticModel::where(
+            'good_index',
+            $get['goodIndex']
+        )->order(
+            'critic_sort',
+            'asc'
+        )->limit(0,12)->select()->toArray();
+        // 返回正确数据
+        return returnData('success',[
+            "criticList" => $criticList
+        ]);
+    }
+
+    /**
+     * 名  称 : criticDelete()
+     * 功  能 : 删除商品评论信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['criticIndex'] => '评论主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function criticDelete($delete)
+    {
+        // 获取商品评论信息
+        $criticList = CriticModel::get($delete['criticIndex']);
+
+        // 判断是否评论信息
+        if(!$criticList) return returnData(
+            'error',
+            '没有这条评论'
+        );
+
+        // 执行删除评论信息
+        $res = $criticList->delete();
+
+        // 判断是否删除成功
+        if(!$res) return returnData(
+            'error',
+            '删除失败'
+        );
+
+        // 返回正确数据
+        return returnData('success','删除成功');
+    }
+
+    /**
+     * 名  称 : goodDelete()
+     * 功  能 : 删除商品数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $delete['goodIndex'] => '商品主键'
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/02 18:30
+     */
+    public function goodDelete($delete)
+    {
+
+        // 启动事务
+        Db::startTrans();
+        try{
+            // 获取商品信息数据
+            $goodModelList = GoodModel::get($delete['goodIndex']);
+
+            // 删除商品规格数据
+            StyleModel::where(
+                'good_index',
+                $delete['goodIndex']
+            )->delete();
+
+            // 配置主图片数据条件
+            $picrureMaster = PictureModel::where(
+                'gdimg_index',
+                $goodModelList['good_img_master']
+            );
+            // 获取商品图片信息
+            $maserData = $picrureMaster->select()->toArray();
+            // 删除主图片文件数据信息
+            foreach($maserData as $k=>$v)
+            {
+                if(unlink('.'.$v['picture_url']));
+            }
+            // 删除商品图片信息
+            $picrureMaster->delete();
+
+            // 配置商品详情图片数据
+            $picrureDetails = PictureModel::where(
+                'gdimg_index',
+                $goodModelList['good_img_details']
+            );
+            // 获取商品详情图片数据
+            $detailData = $picrureDetails->select()->toArray();
+            // 删除商品详情图片数据
+            foreach($detailData as $k=>$v)
+            {
+                if(unlink('.'.$v['picture_url']));
+            }
+            // 删除商品图片信息
+            $picrureDetails->delete();
+
+            CriticModel::where(
+                'good_index',
+                $delete['goodIndex']
+            )->delete();
+
+            // 删除商品数据
+            $goodModelList->delete();
+
+            // 提交事务
+            Db::commit();
+            // 返回正确数据
+            return returnData('success','删除成功');
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            // 返回正确数据
+            return returnData('error','删除失败');
+        }
+    }
+
+    /**
+     * 名  称 : goodSelectList()
+     * 功  能 : 获取商品列表数据信息
+     * 变  量 : --------------------------------------
+     * 输  入 : (String) $get['classIndex'] => '分类主键';
+     * 输  入 : (String) $get['goodLimit']  => '商品页码';
+     * 输  入 : (String) $get['orderType']  => '排序类型'; no/asc/desc/sale
+     * 输  出 : ['msg'=>'success','data'=>'提示信息']
+     * 创  建 : 2018/08/04 16:00
+     */
+    public function goodSelectList($get)
+    {
+        // 获取分类信息
+        $classData = GoodsClassModel::get($get['classIndex']);
+        // 判断是否有这个分类
+        if(!$classData) return returnData('error','没有这个类别');
+
+        // 获取子类商品
+        $classList = GoodsClassModel::where(
+            'class_parent',
+            $classData['class_index']
+        )->select();
+        // 拼接子类信息
+        $classString = '';
+        foreach($classList as $k=>$v)
+        {
+            $classString .= $v['class_index'].',';
+        }
+        // 子类条件字符串
+        $sonClassString = rtrim(
+            $get['classIndex'].','.$classString,
+    ','
+        );
+
+        // 处理查询条件
+        $goodModel = GoodModel::where(
+            'class_index',
+            'in',
+            $sonClassString
+        );
+
+        // 判断价格排序类型
+        if($get['orderType']=='asc')
+        {
+            $goodModel = $goodModel->order('good_price', 'asc');
+        }
+
+        // 判断价格排序类型
+        if($get['orderType']=='desc')
+        {
+            $goodModel = $goodModel->order('good_price', 'desc');
+        }
+
+        // 判断销量排序类型
+        if($get['orderType']=='sale')
+        {
+            $goodModel = $goodModel->order('good_sales', 'desc');
+        }
+
+        // 分页
+        $goodModel = $goodModel->limit($get['goodLimit'],12);
+
+        // 获取商品数据
+        $goodList = $goodModel->select()->toArray();
+
+        // 获取所有商品详情图片
+        $pictureString = '';
+        foreach($goodList as $k=>$v)
+        {
+            $pictureString .= $v['good_img_master'].',';
+        }
+        $pictureString = rtrim($pictureString,',');
+
+        // 获取所有商品图片
+        $pictureModel = PictureModel::where(
+            'gdimg_index',
+            'in',
+            $pictureString
+        )->select()->toArray();
+
+        // 处理是商品图片
+        foreach($goodList as $k=>$v)
+        {
+            $goodList[$k]['image_url'] = [];
+            foreach($pictureModel as $i=>$j)
+            {
+                if($v['good_img_master']==$j['gdimg_index'])
+                {
+                    $goodList[$k]['image_url'][] = $j['picture_url'];
+                }
+            }
+        }
+
+        // 返回正确数据
+        return returnData('success',$goodList);
     }
 }
