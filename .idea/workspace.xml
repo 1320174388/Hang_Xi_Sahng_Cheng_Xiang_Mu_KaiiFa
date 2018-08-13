@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fc68368b-4f73-4295-9a90-ec5ff47ae210" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2650">
-              <caret line="101" column="56" lean-forward="false" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
+            <state relative-caret-position="324">
+              <caret line="96" column="8" lean-forward="false" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
               <folding>
                 <element signature="e#6#181#0#PHP" expanded="true" />
                 <element signature="e#245#266#0#PHP" expanded="true" />
@@ -97,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="274">
@@ -169,8 +170,8 @@
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/dao/OrderDao.php" />
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/service/OrderService.php" />
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/validator/GoodsComment.php" />
-        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" />
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php" />
+        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" />
       </list>
     </option>
   </component>
@@ -761,12 +762,12 @@
       <workItem from="1533807252411" duration="54000" />
       <workItem from="1533808687830" duration="935000" />
       <workItem from="1533989855140" duration="746000" />
-      <workItem from="1534152279604" duration="2760000" />
+      <workItem from="1534152279604" duration="2965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178255000" />
+    <option name="totallyTimeSpent" value="178460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1208,23 +1209,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2650">
-          <caret line="101" column="56" lean-forward="false" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
-          <folding>
-            <element signature="e#6#181#0#PHP" expanded="true" />
-            <element signature="e#245#266#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
           <folding>
             <element signature="e#6#178#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="96" column="8" lean-forward="false" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+          <folding>
+            <element signature="e#6#181#0#PHP" expanded="true" />
+            <element signature="e#245#266#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
