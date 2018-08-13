@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc68368b-4f73-4295-9a90-ec5ff47ae210" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php" afterPath="$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/order_module/working_version/v1/validator/GoodsComment.php" afterPath="$PROJECT_DIR$/application/order_module/working_version/v1/validator/GoodsComment.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,7 +52,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1534163806497" expanded="true" signature="2610:2617" ph="..." />
+                <marker date="1534163806497" expanded="true" signature="2610:2621" ph="..." />
+                <marker date="1534163806497" expanded="true" signature="2610:2622" ph="..." />
+                <marker date="1534163806497" expanded="true" signature="2636:2654" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,8 +100,8 @@
       <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="137" column="56" lean-forward="false" selection-start-line="137" selection-start-column="56" selection-end-line="137" selection-end-column="56" />
+            <state relative-caret-position="274">
+              <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
               <folding>
                 <element signature="e#6#178#0#PHP" expanded="true" />
               </folding>
@@ -121,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/route/assortment_module_v1_api.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1764">
-              <caret line="65" column="14" lean-forward="true" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+              <caret line="65" column="14" lean-forward="false" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -180,8 +182,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-96" />
-    <option name="y" value="102" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -759,15 +761,15 @@
       <workItem from="1533807252411" duration="54000" />
       <workItem from="1533808687830" duration="935000" />
       <workItem from="1533989855140" duration="746000" />
-      <workItem from="1534152279604" duration="2518000" />
+      <workItem from="1534152279604" duration="2760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178013000" />
+    <option name="totallyTimeSpent" value="178255000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-96" y="102" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24357034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1163,14 +1165,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1534163806497" expanded="true" signature="2610:2617" ph="..." />
+            <marker date="1534163806497" expanded="true" signature="2610:2621" ph="..." />
+            <marker date="1534163806497" expanded="true" signature="2610:2622" ph="..." />
+            <marker date="1534163806497" expanded="true" signature="2636:2654" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/route/assortment_module_v1_api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
-          <caret line="65" column="14" lean-forward="true" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+          <caret line="65" column="14" lean-forward="false" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1214,8 +1221,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="137" column="56" lean-forward="false" selection-start-line="137" selection-start-column="56" selection-end-line="137" selection-end-column="56" />
+        <state relative-caret-position="274">
+          <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
           <folding>
             <element signature="e#6#178#0#PHP" expanded="true" />
           </folding>
