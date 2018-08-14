@@ -53,7 +53,7 @@ class GoodsClassService
      */
     public function getClass($get)
     {
-        if(($get['classParent']==0)||(empty($get['classParent'])))
+        if(($get['classParent']!==0)&&(empty($get['classParent'])))
             return returnData(
                 'error',
                 '请发送父类标识'
