@@ -41,16 +41,15 @@ class IndexController extends Controller
      * 名  称 : getGoodsClass()
      * 功  能 : 获取商品分类
      * 变  量 : --------------------------------------
-     * 输  入 : (String) $get['classParent'] = '父类标识';
      * 输  出 :{"errNum":1,"retMsg":"提示信息","retData":false
      * 输  出 :{"errNum":0,"retMsg":"提示信息","retData": {}
      * 创  建 : 2018/07/31 09:50
      */
-    public function getGoodsClass(\think\Request $request)
+    public function getGoodsClass()
     {
         $goods = new GoodsClassService();
         //执行获取数据
-        $data = $goods->getClass($request->get());
+        $data = $goods->getClass();
         //数据为空返回
         if ($data['msg'] !== 'success') return returnResponse(1,'没有添加分类',$data['data']);
         //返回所有数据

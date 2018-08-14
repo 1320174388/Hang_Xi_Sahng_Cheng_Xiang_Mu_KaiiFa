@@ -71,18 +71,14 @@ class GoodsClassDao
      * 名  称 : query()
      * 功  能 : 查询商品分类
      * 变  量 : --------------------------------------
-     * 输  入 : (String) $get['classParent'] = '父类标识';
      * 输  出 ：[ 'msg' => 'error', 'data' => $data ]
      * 输  出 : [ 'msg' => 'success', 'data' => $data ]
      * 创  建 : 2018/07/31 09:50
      */
-    public function query($get)
+    public function query()
     {
         //执行模型查询
-        $data = GoodsClassModel::where(
-            'class_parent',
-            $get['classParent']
-        )->select()->toArray();
+        $data = GoodsClassModel::all();
         //返回 错误信息
         if(!$data) return returnData('error',$data);
         //返回 数据
