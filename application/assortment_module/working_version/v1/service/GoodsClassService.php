@@ -47,14 +47,19 @@ class GoodsClassService
      * 名  称 : getClass()
      * 功  能 : 获取商品分类
      * 变  量 : --------------------------------------
-     * 输  入 : --------------------------------------
+     * 输  入 : (String) $get['classParent'] = '父类标识';
      * 输  出 : [ 'msg' => 'success', 'data' => $data ]
      * 创  建 : 2018/07/31 09:50
      */
-    public function getClass()
+    public function getClass($get)
     {
+        if(($get['classParent']==0)||(empty($get['classParent'])))
+            return returnData(
+                'error',
+                '请发送父类标识'
+            );
         //执行获取数据
-        $D = (new GoodsClassDao())->query();
+        $D = (new GoodsClassDao())->query($get);
         //返回数据为空
         if($D['msg']=='error') return returnData('error',$D['data']);
         $masterClass = [];
