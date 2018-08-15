@@ -97,7 +97,13 @@ class GoodsClassDao
     {
         $model = new GoodsClassModel();
        $reult = $model->where('class_index',$data['class_index'])->update($data);
-       return returnData('success',$reult);
+        if ($reult)
+        {
+            return returnData('success','修改成功');
+        }else
+        {
+            return returnData('error','修改失败');
+        }
     }
     /**
      * 名  称 : delect()

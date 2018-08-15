@@ -101,7 +101,7 @@ class GoodsClassService
         }
         //执行修改操作
        $reult = $classDao->modify($data);
-        if ($reult['data']) {
+        if ($reult['msg'] == 'success') {
             return returnData('success', $reult['data']);
         } else {
             return returnData('error', $reult['data']);
