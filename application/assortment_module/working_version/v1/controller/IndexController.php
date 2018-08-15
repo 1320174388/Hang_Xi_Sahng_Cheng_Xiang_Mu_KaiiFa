@@ -94,7 +94,6 @@ class IndexController extends Controller
         $class_index or exit(returnResponse(1,'没有分类主键'));
         //执行删除
         $goodsClass = new GoodsClassService();
-        
         $reult = $goodsClass->delectClass($class_index);
         //返回结果
         if ($reult['msg'] == 'success'){
