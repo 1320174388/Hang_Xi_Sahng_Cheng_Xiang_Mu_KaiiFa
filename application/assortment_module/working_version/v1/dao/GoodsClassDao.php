@@ -111,6 +111,13 @@ class GoodsClassDao
     {
         $goodsClass = new GoodsClassModel();
         $reult = $goodsClass->where('class_index',$class_index)->delete();
-        return returnData('success',$reult);
+        if ($reult)
+        {
+            return returnData('success','删除成功');
+        }else
+        {
+            return returnData('error','删除失败');
+        }
+
     }
 }

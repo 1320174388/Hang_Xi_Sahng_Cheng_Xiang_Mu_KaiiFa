@@ -126,7 +126,7 @@ class GoodsClassService
         //查询图片路径
         $goodsData = $goodsClass->queryOne($class_index);
         $reult = $goodsClass->delect($class_index);
-        if ($reult['data']) {
+        if ($reult['msg'] == 'success') {
             //删除图片资源
             @unlink($goodsData['data']['class_img_url']);
             return returnData('success', $reult['data']);
