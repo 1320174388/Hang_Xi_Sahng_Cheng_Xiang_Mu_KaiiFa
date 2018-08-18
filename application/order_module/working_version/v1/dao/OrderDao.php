@@ -106,8 +106,9 @@ class OrderDao
     {
         $orderOpject = new OrderMain();
         //执行查询
-        $D = $orderOpject->get($orderNumber);
-        $data = $D->details;
+        $data = $orderOpject->get($orderNumber);
+        $data->details;
+
         //返回数据
         if (count($data) > 0)
         {

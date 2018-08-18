@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc68368b-4f73-4295-9a90-ec5ff47ae210" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoodsClassService.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GoodsClassService.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2866">
-              <caret line="103" column="38" lean-forward="false" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
+            <state relative-caret-position="396">
+              <caret line="116" column="7" lean-forward="true" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -74,7 +72,7 @@
       <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2722">
+            <state relative-caret-position="3384">
               <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
               <folding>
                 <element signature="e#6#181#0#PHP" expanded="true" />
@@ -84,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoodsClassDao.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GoodsClassDao.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2736">
+            <state relative-caret-position="469">
               <caret line="102" column="13" lean-forward="true" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
               <folding>
                 <element signature="e#6#179#0#PHP" expanded="true" />
@@ -202,6 +200,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -392,7 +391,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -507,18 +505,18 @@
       <workItem from="1534152279604" duration="3557000" />
       <workItem from="1534218113464" duration="5476000" />
       <workItem from="1534298266891" duration="88000" />
-      <workItem from="1534299131828" duration="1656000" />
+      <workItem from="1534299131828" duration="2239000" />
+      <workItem from="1534310731089" duration="1819000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186272000" />
+    <option name="totallyTimeSpent" value="188674000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2549168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25869894" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -928,7 +926,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2722">
+        <state relative-caret-position="3384">
           <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
           <folding>
             <element signature="e#6#181#0#PHP" expanded="true" />
@@ -937,21 +935,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2866">
-          <caret line="103" column="38" lean-forward="false" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2736">
+        <state relative-caret-position="469">
           <caret line="102" column="13" lean-forward="true" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
           <folding>
             <element signature="e#6#179#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="116" column="7" lean-forward="true" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
