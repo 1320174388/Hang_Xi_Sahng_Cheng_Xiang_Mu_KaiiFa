@@ -252,4 +252,27 @@ class GoodController extends Controller
         // 返回正确数据
         return returnResponse(0,'请求成功',$res['data']);
     }
+
+    /**
+     * 名  称 : goodListGet()
+     * 功  能 : 获取商品列表数据接口
+     * 变  量 : --------------------------------------
+     * 输  入 : $get['goodLimit']  => '商品页码';
+     * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":"请求数据"}
+     * 创  建 : 2018/08/20 12:00
+     */
+    public function goodListGet(\think\Request $request)
+    {
+        // 实例化Service层逻辑类
+        $goodService = new GoodService();
+
+        // 获取传入参数
+        $get = $request->get();
+
+        // 执行Service逻辑
+        $res = $goodService->goodShow($get);
+
+        // 处理函数返回值
+        return \RSD::wxReponse($res,'S','请求成功');
+    }
 }

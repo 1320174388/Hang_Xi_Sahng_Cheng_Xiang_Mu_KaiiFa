@@ -16,6 +16,25 @@ use app\good_module\working_version\v1\validator\GoodGetValidate;
 class GoodService
 {
     /**
+     * 名  称 : goodShow()
+     * 功  能 : 获取商品列表数据逻辑
+     * 变  量 : --------------------------------------
+     * 输  入 : $get['goodLimit']  => '商品页码';
+     * 输  出 : ['msg'=>'success','data'=>'返回数据']
+     * 创  建 : 2018/08/20 12:00
+     */
+    public function goodShow($get)
+    {
+        // 实例化Dao层数据类
+        $goodDao = new GoodDao();
+
+        // 执行Dao层逻辑
+        $res = $goodDao->goodSelect($get);
+
+        // 处理函数返回值
+        return \RSD::wxReponse($res,'D');
+    }
+    /**
      * 名  称 : goodAdd()
      * 功  能 : 处理商品信息数据
      * 变  量 : --------------------------------------

@@ -18,6 +18,77 @@ use app\assortment_module\working_version\v1\model\GoodsClassModel;
 class GoodDao implements GoodInterface
 {
     /**
+     * 名  称 : goodSelects()
+     * 功  能 : 获取商品列表数据数据处理
+     * 变  量 : --------------------------------------
+     * 输  入 : $get['goodLimit']  => '商品页码';
+     * 输  出 : ['msg'=>'success','data'=>'返回数据']
+     * 创  建 : 2018/08/20 12:00
+     */
+    public function goodSelects($get)
+    {
+        // TODO :  GoodModel 模型
+
+        // 处理查询条件
+        $goodModel = GoodModel::where(true);
+
+        // 判断价格排序类型
+        if($get['orderType']=='asc')
+        {
+            $goodModel = $goodModel->order('good_price', 'asc');
+        }
+
+        // 判断价格排序类型
+        if($get['orderType']=='desc')
+        {
+            $goodModel = $goodModel->order('good_price', 'desc');
+        }
+
+        // 判断销量排序类型
+        if($get['orderType']=='sale')
+        {
+            $goodModel = $goodModel->order('good_sales', 'desc');
+        }
+
+        // 分页
+        $goodModel = $goodModel->limit($get['goodLimit'],12);
+
+        // 获取商品数据
+        $goodList = $goodModel->select()->toArray();
+
+        // 获取所有商品详情图片
+        $pictureString = '';
+        foreach($goodList as $k=>$v)
+        {
+            $pictureString .= $v['good_img_master'].',';
+        }
+        $pictureString = rtrim($pictureString,',');
+
+        // 获取所有商品图片
+        $pictureModel = PictureModel::where(
+            'gdimg_index',
+            'in',
+            $pictureString
+        )->select()->toArray();
+
+        // 处理是商品图片
+        foreach($goodList as $k=>$v)
+        {
+            $goodList[$k]['image_url'] = [];
+            foreach($pictureModel as $i=>$j)
+            {
+                if($v['good_img_master']==$j['gdimg_index'])
+                {
+                    $goodList[$k]['image_url'][] = $j['picture_url'];
+                }
+            }
+        }
+
+        // 返回正确数据
+        return returnData('success',$goodList);
+    }
+
+    /**
      * 名  称 : goodCreate()
      * 功  能 : 添加商品信息到数据库
      * 变  量 : --------------------------------------

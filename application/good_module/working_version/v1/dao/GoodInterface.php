@@ -12,6 +12,15 @@ namespace app\good_module\working_version\v1\dao;
 interface GoodInterface
 {
     /**
+     * 名  称 : goodSelects()
+     * 功  能 : 声明:获取商品列表数据数据处理
+     * 变  量 : --------------------------------------
+     * 输  入 : $get['goodLimit']  => '商品页码';
+     * 输  出 : ['msg'=>'success','data'=>'返回数据']
+     * 创  建 : 2018/08/20 12:00
+     */
+    public function goodSelects($get);
+    /**
      * 名  称 : goodCreate()
      * 功  能 : 添加商品信息到数据库
      * 变  量 : --------------------------------------
