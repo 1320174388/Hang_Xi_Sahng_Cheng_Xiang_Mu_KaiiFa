@@ -8,5 +8,6 @@
  *  历史记录 :  -----------------------
  */
 return [
-    'GoodsClass' => 'data_class_lists'
+    'GoodsClass' => 'data_class_lists',
+    'GoodClass' => 'data_goods_lists'
 ];

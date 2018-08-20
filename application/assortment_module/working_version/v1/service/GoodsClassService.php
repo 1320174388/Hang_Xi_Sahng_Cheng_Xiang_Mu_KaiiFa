@@ -135,4 +135,26 @@ class GoodsClassService
             return returnData('error', $reult['data']);
         }
     }
+
+
+
+    /**
+     * 名  称 : assortmentShow()
+     * 功  能 : 获取分类及商品信息逻辑
+     * 变  量 : --------------------------------------
+     * 输  入 : --------------------------------------
+     * 输  出 : ['msg'=>'success','data'=>'返回数据']
+     * 创  建 : 2018/08/20 17:22
+     */
+    public function assortmentShow($get)
+    {
+        // 实例化Dao层数据类
+        $assortmentDao = new GoodsClassDao();
+
+        // 执行Dao层逻辑
+        $res = $assortmentDao->assortmentSelect($get);
+
+        // 处理函数返回值
+        return \RSD::wxReponse($res,'D');
+    }
 }

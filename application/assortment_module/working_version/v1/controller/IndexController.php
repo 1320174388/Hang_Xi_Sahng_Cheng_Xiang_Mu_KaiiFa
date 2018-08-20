@@ -116,6 +116,27 @@ class IndexController extends Controller
         return returnResponse(0,'请求成功',$reult);
     }
 
+    /**
+     * 名  称 : assortmentGet()
+     * 功  能 : 获取分类及商品信息接口
+     * 变  量 : --------------------------------------
+     * 输  入 : --------------------------------------
+     * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":"请求数据"}
+     * 创  建 : 2018/08/20 17:22
+     */
+    public function assortmentGet(\think\Request $request)
+    {
+        // 实例化Service层逻辑类
+        $assortmentService = new GoodsClassService();
 
+        // 获取传入参数
+        $get = $request->get();
+
+        // 执行Service逻辑
+        $res = $assortmentService->assortmentShow($get);
+
+        // 处理函数返回值
+        return \RSD::wxReponse($res,'S','请求成功');
+    }
 
 }

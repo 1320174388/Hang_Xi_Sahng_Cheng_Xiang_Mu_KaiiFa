@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc68368b-4f73-4295-9a90-ec5ff47ae210" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/assortment_module/config/v1_tableName.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/application/assortment_module/config/tableName.php" afterPath="$PROJECT_DIR$/application/assortment_module/config/tableName.php" />
       <change beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/route/assortment_module_v1_api.php" afterPath="$PROJECT_DIR$/route/assortment_module_v1_api.php" />
+      <change beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php" />
+      <change beforePath="$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php" afterPath="$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php" />
+      <change beforePath="$PROJECT_DIR$/extend/.gitignore" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +19,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GoodsClassDao.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="954">
+              <caret line="172" column="0" lean-forward="true" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#179#0#PHP" expanded="true" />
+                <element signature="e#236#303#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsClassModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodsClassModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="22" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodClassModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodClassModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tableName.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/assortment_module/config/tableName.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsClassService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+            <state relative-caret-position="464">
+              <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
               <folding>
                 <element signature="e#6#181#0#PHP" expanded="true" />
                 <element signature="e#245#266#0#PHP" expanded="true" />
@@ -31,8 +88,8 @@
       <file leaf-file-name="assortment_module_v1_api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/route/assortment_module_v1_api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70">
-              <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+            <state relative-caret-position="315">
+              <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -51,7 +108,6 @@
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/indexControlloer.php" />
         <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexControlloer.php" />
-        <option value="$PROJECT_DIR$/application/assortment_module/config/tableName.php" />
         <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodsClass.php" />
         <option value="$PROJECT_DIR$/application/assortment_module/common.php" />
         <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsDao.php" />
@@ -76,10 +132,13 @@
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/service/OrderService.php" />
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/validator/GoodsComment.php" />
         <option value="$PROJECT_DIR$/application/order_module/working_version/v1/controller/OrderController.php" />
-        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php" />
-        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php" />
         <option value="$PROJECT_DIR$/route/assortment_module_v1_api.php" />
+        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php" />
+        <option value="$PROJECT_DIR$/application/assortment_module/config/tableName.php" />
+        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodClassModel.php" />
         <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php" />
+        <option value="$PROJECT_DIR$/extend/RSD.php" />
+        <option value="$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php" />
       </list>
     </option>
   </component>
@@ -90,9 +149,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="538" />
+    <option name="y" value="63" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -112,7 +171,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,6 +188,13 @@
               <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="assortment_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assortment_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
@@ -158,6 +223,46 @@
             <path>
               <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assortment_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="working_version" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="v1" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="dao" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assortment_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="working_version" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="v1" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="model" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assortment_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="working_version" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="v1" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="service" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="good_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="good_module" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="extend" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -169,6 +274,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -178,6 +284,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Program\www\Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa\application\assortment_module\config" />
       <recent name="D:\phpstudy\WWW\Hang_Xi_Sahng_Cheng_Xiang_Mu_KaiiFa\application\order_module\config" />
     </key>
   </component>
@@ -287,26 +394,28 @@
       <workItem from="1534298266891" duration="88000" />
       <workItem from="1534299131828" duration="2239000" />
       <workItem from="1534310731089" duration="1819000" />
-      <workItem from="1534756790133" duration="243000" />
+      <workItem from="1534756790133" duration="4570000" />
+      <workItem from="1534761826500" duration="4816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188917000" />
+    <option name="totallyTimeSpent" value="198060000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.70212764" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -316,6 +425,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -356,37 +466,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/talk_module/working_version/v1/validator/LeavingValidate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/talk_module/working_version/v1/validator/SessionValidate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/talk_module/working_version/v1/validator/ReplyValidate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/talk_module/working_version/v1/validator/ProblemValidate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-653">
@@ -530,24 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/good_module/working_version/v1/dao/GoodDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="98" column="24" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/validator/ClassDataValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodsClassModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -556,13 +621,6 @@
         <state relative-caret-position="432">
           <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/good_module/config/v1_tableName.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -648,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -656,18 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4725">
           <caret line="148" column="6" lean-forward="false" selection-start-line="148" selection-start-column="6" selection-end-line="151" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#179#0#PHP" expanded="true" />
-            <element signature="e#245#298#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="116" column="7" lean-forward="false" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -683,17 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="102" column="13" lean-forward="false" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
-          <folding>
-            <element signature="e#6#179#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,9 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="139" column="5" lean-forward="false" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
-          <folding>
-            <element signature="e#6#178#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,25 +741,99 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodsClassModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="22" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/config/tableName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/route/assortment_module_v1_api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        <state relative-caret-position="315">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/model/GoodClassModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/controller/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        <state relative-caret-position="464">
+          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding>
             <element signature="e#6#181#0#PHP" expanded="true" />
             <element signature="e#245#266#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/service/GoodsClassService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extend/RSD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="195" column="29" lean-forward="false" selection-start-line="195" selection-start-column="29" selection-end-line="195" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/good_module/working_version/v1/dao/GoodDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/config/v1_tableName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/good_module/config/v1_tableName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/assortment_module/working_version/v1/dao/GoodsClassDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="954">
+          <caret line="172" column="0" lean-forward="true" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#179#0#PHP" expanded="true" />
+            <element signature="e#236#303#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

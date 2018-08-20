@@ -9,6 +9,7 @@
  */
 namespace app\assortment_module\working_version\v1\dao;
 use app\assortment_module\working_version\v1\model\GoodsClassModel;
+use app\good_module\working_version\v1\model\GoodModel;
 class GoodsClassDao
 {
     /**
@@ -126,4 +127,53 @@ class GoodsClassDao
         }
 
     }
+
+
+    /**
+     * 名  称 : assortmentSelect()
+     * 功  能 : 获取分类及商品信息数据处理
+     * 变  量 : --------------------------------------
+     * 输  入 : --------------------------------------
+     * 输  出 : ['msg'=>'success','data'=>'返回数据']
+     * 创  建 : 2018/08/20 17:22
+     */
+    public function assortmentSelect($get)
+    {
+        // TODO :  AssortmentModel 模型
+
+        $assortment = new GoodsClassModel();
+
+        $sel = $assortment->where(true)->select()->toArray();
+
+        $classListArr = [];
+
+        foreach( $sel as $k => $v )
+        {
+            if($v['class_parent']=='0'){
+                $classListArr[] = $v;
+            }
+        }
+
+        foreach( $classListArr as $k => $v )
+        {
+            $classListArr[$k]['son_class'] = '';
+            foreach( $sel as $i => $j )
+            {
+                if($v['class_index']==$j['class_parent']){
+                    $classListArr[$k]['son_class'] .= $j['class_index'].',';
+                }
+            }
+            $classListArr[$k]['son_class'] = rtrim($classListArr[$k]['son_class'],',');
+            $classListArr[$k]['son_class'] = GoodModel::where(
+                'class_index',
+                'in',
+                $classListArr[$k]['son_class']
+            )->limit(0,3)->select()->toArray();
+        }
+
+
+        return \RSD::wxReponse($classListArr,'M');
+
+    }
+
 }
