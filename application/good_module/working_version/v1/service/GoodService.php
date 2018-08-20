@@ -29,7 +29,7 @@ class GoodService
         $goodDao = new GoodDao();
 
         // 执行Dao层逻辑
-        $res = $goodDao->goodSelect($get);
+        $res = $goodDao->goodSelects($get);
 
         // 处理函数返回值
         return \RSD::wxReponse($res,'D');
