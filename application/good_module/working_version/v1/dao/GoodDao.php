@@ -32,24 +32,6 @@ class GoodDao implements GoodInterface
         // 处理查询条件
         $goodModel = GoodModel::where(true);
 
-        // 判断价格排序类型
-        if($get['orderType']=='asc')
-        {
-            $goodModel = $goodModel->order('good_price', 'asc');
-        }
-
-        // 判断价格排序类型
-        if($get['orderType']=='desc')
-        {
-            $goodModel = $goodModel->order('good_price', 'desc');
-        }
-
-        // 判断销量排序类型
-        if($get['orderType']=='sale')
-        {
-            $goodModel = $goodModel->order('good_sales', 'desc');
-        }
-
         // 分页
         $goodModel = $goodModel->limit($get['goodLimit'],12);
 
