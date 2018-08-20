@@ -115,4 +115,7 @@ class IndexController extends Controller
         $reult = $upload->uploadImage();
         return returnResponse(0,'请求成功',$reult);
     }
+
+
+
 }

@@ -1,4 +1,17 @@
 <?php
+
+
+
+/**
+ * 传值方式 : GET
+ * 路由功能 : 获取分类及商品信息
+ */
+Route::get(
+    ':v/assortment_module/assortment_route',
+    'assortment_module/:v.controller.IndexController/assortmentGet'
+);
+
+
 /**
  *  版权声明 :  地老天荒科技有限公司
  *  文件名称 :  assortment_module_v1_api.php
