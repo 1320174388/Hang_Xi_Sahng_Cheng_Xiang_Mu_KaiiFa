@@ -8,6 +8,7 @@
  *  历史记录 :  -----------------------
  */
 namespace app\good_module\working_version\v1\service;
+use think\RSD;
 use app\good_module\working_version\v1\dao\GoodDao;
 use app\good_module\working_version\v1\validator\GoodValidate;
 use app\good_module\working_version\v1\validator\ImageValidate;
@@ -32,7 +33,7 @@ class GoodService
         $res = $goodDao->goodSelects($get);
 
         // 处理函数返回值
-        return \RSD::wxReponse($res,'D');
+        return RSD::wxReponse($res,'D');
     }
     /**
      * 名  称 : goodAdd()

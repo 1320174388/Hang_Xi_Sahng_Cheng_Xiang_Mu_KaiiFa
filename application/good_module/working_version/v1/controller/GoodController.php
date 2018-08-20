@@ -10,6 +10,7 @@
 namespace app\good_module\working_version\v1\controller;
 use think\Controller;
 use think\Request;
+use think\RSD;
 use app\good_module\working_version\v1\service\GoodService;
 
 class GoodController extends Controller
@@ -273,6 +274,6 @@ class GoodController extends Controller
         $res = $goodService->goodShow($get);
 
         // 处理函数返回值
-        return \RSD::wxReponse($res,'S','请求成功');
+        return RSD::wxReponse($res,'S','请求成功');
     }
 }
