@@ -52,7 +52,7 @@ Route::group('v1/good_module/', function(){
      * 传值方式: GET
      * 路由功能: 添加商品信息接口
      */
-    Route::post(
+    Route::get(
         'good_get_goodlist/:token',
         'good_module/v1.controller.GoodController/goodListGet'
     );
