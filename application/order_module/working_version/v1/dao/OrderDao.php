@@ -82,11 +82,11 @@ class OrderDao
      * 输    出：['msg'=>'success','data'=>'订单数据']
      * 输    出：['msg'=>'error','data'=>'提示信息']
      */
-    public function getAllList()
+    public function getAllList($num)
     {
         $dataModel = new OrderMain();
-        //查询订单表
-        $data =  $dataModel->select();
+        //查询订单表 查询前12条数据
+        $data =  $dataModel->limit(12*$num,12)->select();
         foreach ($data as $k=>$v) {
             $data =  $dataModel->get($v['order_number']);
             $data->details;

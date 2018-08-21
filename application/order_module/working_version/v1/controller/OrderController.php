@@ -68,7 +68,8 @@ class OrderController
 
         $dataOpject = new OrderService();
         //执行查询 获取数据
-        $reult = $dataOpject->orderAllList();
+        $num = isset($_GET['num']) ? $_GET['num'] : 0;
+        $reult = $dataOpject->orderAllList($num);
         //返回结果
         if ($reult['msg'] == 'success'){
             return returnResponse(0,'获取成功',$reult['data']);

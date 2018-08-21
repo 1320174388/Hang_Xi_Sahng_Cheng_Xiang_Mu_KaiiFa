@@ -92,11 +92,11 @@ class OrderService
      * 输    出：['msg'=>'success','data'=>'订单数据']
      * 输    出：['msg'=>'error','data'=>'提示信息']
      */
-    public function orderAllList()
+    public function orderAllList($num)
     {
         $dataOpject = new OrderDao();
         //获取数据
-        $reult = $dataOpject->getAllList();
+        $reult = $dataOpject->getAllList($num);
         //返回结果
         if ($reult['msg'] == 'success')
         {
