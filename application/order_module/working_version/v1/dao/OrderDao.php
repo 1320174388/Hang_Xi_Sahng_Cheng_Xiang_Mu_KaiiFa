@@ -87,6 +87,11 @@ class OrderDao
         $dataModel = new OrderMain();
         //查询订单表
         $data =  $dataModel->select();
+        foreach ($data as $k=>$v) {
+            $data =  $dataModel->get($v['order_number']);
+            $data->details;
+        }
+
         //返回结果
         if (count($data) > 0)
         {
