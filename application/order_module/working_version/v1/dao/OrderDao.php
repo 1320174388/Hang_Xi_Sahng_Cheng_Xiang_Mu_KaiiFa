@@ -87,15 +87,17 @@ class OrderDao
         $dataModel = new OrderMain();
         //查询订单表 查询前12条数据
         $data =  $dataModel->limit(12*$num,12)->select();
+        $datas = [];
         foreach ($data as $k=>$v) {
             $data =  $dataModel->get($v['order_number']);
             $data->details;
+            $datas[$k] = $data;
         }
 
         //返回结果
-        if (count($data) > 0)
+        if (count($datas) > 0)
         {
-            return returnData('success',$data);
+            return returnData('success',$datas);
         }else{
             return returnData('error','没有数据');
         }
