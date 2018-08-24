@@ -69,9 +69,16 @@ class OrderDao
         $order = new OrderMain();
         //查询订单
        $orderArray = $order->where('user_token',$token)->select();
+        $datas = [];
+        foreach ($orderArray as $k=>$v) {
+            $data =  $order->get($v['order_number']);
+            $data->details;
+            $datas[$k] = $data;
+        }
+
        //返回结果
-        if (count($orderArray) > 0){
-            return returnData('success',$orderArray);
+        if (count($datas) > 0){
+            return returnData('success',$datas);
         }else{
             return returnData('error','没有数据');
         }
