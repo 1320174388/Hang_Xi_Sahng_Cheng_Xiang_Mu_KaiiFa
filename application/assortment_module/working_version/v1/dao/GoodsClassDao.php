@@ -10,6 +10,7 @@
 namespace app\assortment_module\working_version\v1\dao;
 use app\assortment_module\working_version\v1\model\GoodsClassModel;
 use app\good_module\working_version\v1\model\GoodModel;
+use app\good_module\working_version\v1\model\PictureModel;
 class GoodsClassDao
 {
     /**
@@ -168,6 +169,17 @@ class GoodsClassDao
                 'class_index',
                 'in',
                 $classListArr[$k]['son_class']
+            )->limit(0,3)->select()->toArray();
+            $styleIndexs = '';
+            foreach( $classListArr[$k]['son_class'] as $i => $j )
+            {
+                $styleIndexs .= $j['good_img_master'].',';
+            }
+            $styleIndexs = rtrim($styleIndexs,',');
+            $classListArr[$k]['son_class']['style_list'] = PictureModel::where(
+                'gdimg_index',
+                'in',
+                $styleIndexs
             )->limit(0,3)->select()->toArray();
         }
 
