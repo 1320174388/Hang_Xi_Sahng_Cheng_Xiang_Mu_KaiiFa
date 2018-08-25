@@ -178,6 +178,14 @@ class GoodsClassDao
                         $j['good_img_master']
                     )->find()->toArray()
                 );
+                unset($classListArr[$k]['son_class'][$i]['class_index']);
+                unset($classListArr[$k]['son_class'][$i]['good_img_master']);
+                unset($classListArr[$k]['son_class'][$i]['good_img_details']);
+                unset($classListArr[$k]['son_class'][$i]['good_sales']);
+                unset($classListArr[$k]['son_class'][$i]['good_time']);
+                unset($classListArr[$k]['son_class'][$i]['picture_index']);
+                unset($classListArr[$k]['son_class'][$i]['gdimg_index']);
+                unset($classListArr[$k]['son_class'][$i]['picture_sort']);
             }
 
         }
