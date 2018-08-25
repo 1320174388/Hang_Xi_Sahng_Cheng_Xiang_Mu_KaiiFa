@@ -172,15 +172,15 @@ class GoodsClassDao
             )->limit(0,3)->select()->toArray();
             foreach( $classListArr[$k]['son_class'] as $i => $j )
             {
-                $classListArr[$k]['son_class'][$i]['style_list'] = PictureModel::where(
-                    'gdimg_index',
-                    $j['good_img_master']
-                )->limit(0,3)->select()->toArray();
+                $classListArr[$k]['son_class'][$i] = array_merge(
+                    $classListArr[$k]['son_class'][$i],PictureModel::where(
+                        'gdimg_index',
+                        $j['good_img_master']
+                    )->find()->toArray()
+                );
             }
 
         }
-
-
         return \RSD::wxReponse($classListArr,'M');
 
     }
