@@ -170,17 +170,14 @@ class GoodsClassDao
                 'in',
                 $classListArr[$k]['son_class']
             )->limit(0,3)->select()->toArray();
-            $styleIndexs = '';
             foreach( $classListArr[$k]['son_class'] as $i => $j )
             {
-                $styleIndexs .= $j['good_img_master'].',';
+                $classListArr[$k]['son_class'][$i]['style_list'] = PictureModel::where(
+                    'gdimg_index',
+                    $j['good_img_master']
+                )->limit(0,3)->select()->toArray();
             }
-            $styleIndexs = rtrim($styleIndexs,',');
-            $classListArr[$k]['son_class']['style_list'] = PictureModel::where(
-                'gdimg_index',
-                'in',
-                $styleIndexs
-            )->limit(0,3)->select()->toArray();
+
         }
 
 
