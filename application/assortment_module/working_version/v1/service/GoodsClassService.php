@@ -60,7 +60,7 @@ class GoodsClassService
         $masterClass = [];
         //提取主分类
         foreach($D['data'] as $k=>$v){
-            if($v['class_parent']==0){
+            if($v['class_parent']=='0'){
                 $masterClass[] = $v->toArray();
             }
         }
