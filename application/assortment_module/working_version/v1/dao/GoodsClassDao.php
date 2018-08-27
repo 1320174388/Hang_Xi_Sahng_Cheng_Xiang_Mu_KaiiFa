@@ -192,5 +192,26 @@ class GoodsClassDao
         return \RSD::wxReponse($classListArr,'M');
 
     }
-
+    /**
+     * 名  称 : queryClassGoods()
+     * 功  能 : 查询子分类下的商品
+     * 变  量 : --------------------------------------
+     * 输  入 ：(string) $classIndex => 分类主键
+     * 输  出 : [ 'msg' => 'success', 'data' => $data ]
+     * 输  出 : [ 'msg' => 'error', 'data' => '没有商品' ]
+     * 创  建 : 2018/07/31 09:50
+     */
+    public function queryClassGoods($classIndex)
+    {
+        //查询商品
+        $GoodsOpject = new GoodModel();
+        $data = $GoodsOpject->where('class_index',$classIndex)->find();
+        //返回结果
+        if($data)
+        {
+            return returnData('success',$data);
+        }else{
+            return returnData('error','没有商品');
+        }
+    }
 }

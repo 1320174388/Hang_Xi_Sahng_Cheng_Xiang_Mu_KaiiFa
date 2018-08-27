@@ -123,6 +123,11 @@ class GoodsClassService
         if ($sonClass['msg'] == 'success'){
             return returnData('error','这个分类下有子分类不可删除');
         }
+        //查询子分类下的商品
+        $goods = $goodsClass->queryClassGoods($class_index);
+        if ($goods['msg'] == 'success'){
+            return returnData('error','这个分类下有商品不可删除');
+        }
         //查询图片路径
         $goodsData = $goodsClass->queryOne($class_index);
         $reult = $goodsClass->delect($class_index);
