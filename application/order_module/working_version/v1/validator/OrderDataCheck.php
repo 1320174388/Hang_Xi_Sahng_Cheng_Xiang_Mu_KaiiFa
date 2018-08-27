@@ -28,7 +28,7 @@ class OrderDataCheck extends Validate
 // +----------------------------------------------------------------------
 
     protected $rule = [
-        'order_number'  => 'require|min:32|max:32',
+        'order_number'  => 'require|min:24|max:24',
         'user_token'    => 'require|min:32|max:32',
         'order_people'  => 'require',
         'order_phone'   => 'require',
@@ -40,8 +40,8 @@ class OrderDataCheck extends Validate
     ];
     protected $message =[
         'order_number.require'  => '订单号order_number不能为空',
-        'order_number.min'      => '订单号order_number错误',
-        'order_number.max'      => '订单号order_number错误',
+        'order_number.min'      => '订单号order_number错误应为24位',
+        'order_number.max'      => '订单号order_number错误应为24位',
         'user_token.require'    => '用户token不能为空',
         'user_token.min'        => '用户token错误',
         'user_token.max'        => '用户token错误',
