@@ -4,7 +4,7 @@
  *  文件名称 :  GoodsClass.php
  *  创 建 者 :  Feng TianShui
  *  创建日期 :  2018/07/30 18:59
- *  文件描述 :  商品分类表模型
+ *  文件描述 :  商品表模型
  *  历史记录 :  -----------------------
  */
 namespace app\assortment_module\working_version\v1\model;
