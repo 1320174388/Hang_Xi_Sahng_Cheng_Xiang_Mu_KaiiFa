@@ -18,6 +18,12 @@ class CriticModel extends Model
     // 设置当前模型对应数据表的主键
     protected $pk = 'id';
 
+    //设置时间字段名称
+    protected $createTime = 'critic_time';
+
+    //开启自动写入时间戳
+    protected $autoWriteTimestamp = true;
+
     // 加载配置数据表名
     public function initialize()
     {
