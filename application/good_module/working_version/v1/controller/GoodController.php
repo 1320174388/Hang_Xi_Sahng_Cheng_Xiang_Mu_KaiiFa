@@ -147,6 +147,7 @@ class GoodController extends Controller
      * 功  能 : 获取商品评论信息
      * 变  量 : --------------------------------------
      * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  入 : (String) $get['critic_number'] => '商品分页'
      * 输  出 : {"errNum":0,"retMsg":"请求成功","retData":{
      *              "msgList":"评论信息"
      *          }}

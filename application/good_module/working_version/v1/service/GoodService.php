@@ -229,6 +229,7 @@ class GoodService
      * 功  能 : 获取商品评论信息
      * 变  量 : --------------------------------------
      * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  入 : (String) $get['critic_number'] => '商品分页'
      * 输  出 : ['msg'=>'success','data'=>[
      *              "msgList"=>"评论信息"
      *          ]]
@@ -240,6 +241,12 @@ class GoodService
         if(empty($get['goodIndex'])) return returnData(
             'error',
             '请发送商品主键'
+        );
+
+        // 判断 $get['critic_number'] 是否有值
+        if(empty($get['critic_number'])) return returnData(
+            'error',
+            '请发送现有的评论数量'
         );
 
         // 实例化Dao数据操作类，写入数据

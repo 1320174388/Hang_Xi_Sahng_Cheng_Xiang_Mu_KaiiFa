@@ -364,7 +364,8 @@ class GoodDao implements GoodInterface
      * 名  称 : criticSelect()
      * 功  能 : 获取商品评论信息
      * 变  量 : --------------------------------------
-     * 输  入 : (String) $get['goodIndex'] => '商品主键'
+     * 输  入 : (String) $get['goodIndex']     => '商品主键'
+     * 输  入 : (String) $get['critic_number'] => '商品分页'
      * 输  出 : ['msg'=>'success','data'=>[
      *              "msgList"=>"评论信息"
      *          ]]
@@ -379,7 +380,7 @@ class GoodDao implements GoodInterface
         )->order(
             'critic_sort',
             'asc'
-        )->limit(0,12)->select()->toArray();
+        )->limit($get['critic_number'],12)->select()->toArray();
         // 返回正确数据
         return returnData('success',[
             "criticList" => $criticList
