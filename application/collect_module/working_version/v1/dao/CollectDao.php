@@ -145,6 +145,7 @@ class CollectDao implements CollectInterface
             $delete['userToken']
         )->where(
             'good_index',
+            'in',
             $delete['goodIndex']
         )->delete();
         // 判断是否有数据

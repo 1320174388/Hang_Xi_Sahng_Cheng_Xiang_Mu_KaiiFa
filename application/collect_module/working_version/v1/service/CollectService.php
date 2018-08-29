@@ -136,15 +136,12 @@ class CollectService
      */
     public function collectDel($delete)
     {
-        // 实例化验证器，验证数据是否正确
-        $collectValidate = new CollectValidate();
-        // 判断数据是否正确,返回错误数据
-        if(!$collectValidate->check($delete))
-        {
-            return returnData(
-                'error',
-                $collectValidate->getError()
-            );
+        if(empty($delete['userToken'])){
+            returnData('error','请发送用户标识');
+        }
+
+        if(empty($delete['goodIndex'])){
+            returnData('error','请发送商品标识');
         }
 
         // 实例化Dao数据操作类，写入数据
