@@ -24,6 +24,12 @@ class CollectDao implements CollectInterface
      */
     public function collectCreate($post)
     {
+        // 删除原收藏
+        CollectModel::where(
+            'user_token',$post['userToken']
+        )->where(
+            'good_index',$post['goodIndex']
+        )->delete();
         // 实例化收藏表数据模型
         $collectModel = new CollectModel();
         // 处理数据
