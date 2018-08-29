@@ -280,7 +280,7 @@ class InfoDao implements InfoInterface
             $leav = LeavingModel::get($post['leavingIndex']);
             // 修改信息状态
             $leav->leaving_status = 2;
-            $leav->leaving_handle = '楠枫美林客服';
+            $leav->leaving_handle = '客服';
             // 保存
             $leav->save();
 
